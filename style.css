@@ -71,7 +71,10 @@ body {
   text-align: left;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);.card {
+  text-decoration: none;
+  color: inherit;
+}
 }
 .card:hover {
   transform: translateY(-10px) scale(1.02);
