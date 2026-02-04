@@ -73,18 +73,19 @@ body {
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
-
 .card:hover {
-  transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-10px) scale(1.02);
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
 }
-
 /* HIGHLIGHT CARD */
 .highlight {
   border: 2px solid #00e5c0;
   box-shadow: 0 0 18px rgba(0, 229, 192, 0.35);
 }
-
+.highlight:hover {
+  box-shadow: 0 0 30px rgba(0, 229, 192, 0.6);
+}
 /* CARD TEXT */
 .card h2 {
   font-size: 22px;
