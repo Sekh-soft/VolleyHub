@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quick Score – VolleyHub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</head>
+<body>
+<h2>Live Quick Score</h2>
+<input id="teamAName" placeholder="Team A Name">
+<input id="teamBName" placeholder="Team B Name">
+<br>
+<button onclick="startMatch()">Start Match</button>
+<hr>
+<h1 id="teamA">0</h1>
+<button onclick="addPoint('A')">Team A +</button>
+<h1 id="teamB">0</h1>
+<button onclick="addPoint('B')">Team B +</button>
+<script src="js/firebase.js"></script>
+<script src="js/quick.js"></script>
+</body>
+</html>
