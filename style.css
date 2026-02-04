@@ -102,3 +102,22 @@ body {
   font-weight: bold;
   color: #00e5c0;
 }
+/* STADIUM LIGHT EFFECT */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 255, 255, 0.08),
+    transparent 60%
+  );
+  animation: lightMove 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes lightMove {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+  100% { opacity: 0.3; }
+}
