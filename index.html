@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>VolleyHub | Live Volleyball Scores</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <title>VolleyHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
 
-  <!-- Floating volleyballs -->
-  <div class="ball ball1">🏐</div>
-  <div class="ball ball2">🏐</div>
-  <div class="ball ball3">🏐</div>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="overlay"></div>
 
-  <div class="hero">
-    <h1 class="title">VolleyHub</h1>
-    <p class="subtitle">
-      Live Volleyball Scoring & Tournament Hosting
-    </p>
+    <div class="container hero-content">
+      <h1>VolleyHub</h1>
+      <p>Professional Volleyball Tournament & Live Score Platform</p>
 
-    <div class="card-container">
-      <div class="card highlight" onclick="location.href='quick.html'">
-        <h2>🏐 Quick Score</h2>
-        <p>Instant live scoring for practice & friendly matches</p>
-        <span>Start Scoring →</span>
-      </div>
+      <div class="card-container">
+        <div class="card highlight" onclick="location.href='quick-score.html'">
+          <h2>🏐 Quick Score</h2>
+          <p>Instant scoring for practice or friendly matches.</p>
+          <span>Start Match →</span>
+        </div>
 
-      <div class="card disabled">
-        <h2>🏆 Host Tournament</h2>
-        <p>Fixtures, live matches & points table</p>
-        <span>Coming Soon</span>
+        <div class="card" onclick="location.href='tournament.html'">
+          <h2>🏆 Tournament Mode</h2>
+          <p>Manage teams, fixtures, and live match scores.</p>
+          <span>Create Tournament →</span>
+        </div>
+
+        <div class="card" onclick="location.href='viewer.html'">
+          <h2>📺 Live Viewer</h2>
+          <p>Share live scores with audience through a link.</p>
+          <span>View Live →</span>
+        </div>
       </div>
     </div>
-  </div>
-
-  <footer>
-    <p>Built for Volleyball Lovers 🏐</p>
-  </footer>
+  </header>
 
 </body>
 </html>
