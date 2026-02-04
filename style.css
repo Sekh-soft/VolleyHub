@@ -120,4 +120,34 @@ body {
   0% { opacity: 0.3; }
   50% { opacity: 0.6; }
   100% { opacity: 0.3; }
+}/* FLOATING VOLLEYBALLS */
+.ball {
+  position: absolute;
+  font-size: 48px;
+  opacity: 0.12;
+  animation: floatBall 12s infinite ease-in-out;
 }
+
+.ball1 {
+  top: 20%;
+  left: 8%;
+}
+
+.ball2 {
+  top: 60%;
+  right: 10%;
+  animation-delay: 3s;
+}
+
+.ball3 {
+  bottom: 15%;
+  left: 45%;
+  animation-delay: 6s;
+}
+
+@keyframes floatBall {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+  100% { transform: translateY(0); }
+}
+
