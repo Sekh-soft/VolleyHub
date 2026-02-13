@@ -38,7 +38,7 @@ overflow:hidden;
 .hero-bg{
 position:absolute;
 inset:0;
-background:url("../images/hero-bg.png") center/cover no-repeat;
+background:url("../images/hero-bg.png.png") center/cover no-repeat;
 filter:brightness(0.4) blur(2px);
 animation:slowZoom 20s ease-in-out infinite alternate;
 z-index:0;
