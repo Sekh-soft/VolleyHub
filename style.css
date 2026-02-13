@@ -3,6 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* HERO SECTION */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
 
 body {
   font-family: "Segoe UI", Arial, sans-serif;
@@ -10,31 +17,106 @@ body {
   color: #ffffff;
 }
 
-/* HERO BACKGROUND */
-.hero {
-  min-height: 100vh;
-  background-image: url("https://images.unsplash.com/photo-1599058917212-d750089bc07b");
-  background-size: cover;
-  background-position: center;
-  position: relative;
+/* Background image with animation */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+
+    background-image: url("images/hero-bg.png");
+    background-size: cover;
+    background-position: center;
+
+    animation: slowZoom 25s ease-in-out infinite alternate;
+    z-index: 1;
 }
 
-/* DARK OVERLAY */
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    rgba(0, 0, 0, 0.75),
-    rgba(0, 0, 0, 0.85)
-  );
+/* Dark overlay */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg,
+        rgba(0,0,0,0.6),
+        rgba(10,10,30,0.85));
+    z-index: 2;
 }
 
-/* CENTERED CONTENT */
+/* Content */
 .hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding-top: 90px;
+    position: relative;
+    z-index: 3;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: white;
+}
+/* Neon glowing title */
+.glow-text {
+    font-size: 4rem;
+    font-weight: 800;
+
+    text-shadow:
+        0 0 10px #3b82f6,
+        0 0 20px #3b82f6,
+        0 0 40px #6366f1;
+}
+/* Subtitle */
+.hero-sub {
+    margin-top: 12px;
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+/* Buttons */
+.hero-buttons {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary {
+    padding: 12px 28px;
+    background: linear-gradient(45deg,#3b82f6,#6366f1);
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+}
+
+.btn-glass {
+    padding: 12px 28px;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+}
+
+/* Cinematic zoom */
+@keyframes slowZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+.glow-text {
+    font-size: 2.5rem;
+}
+
+.hero-buttons {
+    flex-direction: column;
+}
 }
 
 /* CONTAINER */
