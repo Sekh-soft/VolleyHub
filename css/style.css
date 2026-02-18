@@ -133,46 +133,54 @@ opacity:.85;
 margin-bottom:45px;
 }
 
-/* Buttons */
-.hero-buttons{
-display:flex;
-gap:25px;
-flex-wrap:wrap;
-justify-content:center;
+
+.hero-buttons {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
 }
 
-.hero-buttons a{
-padding:18px 40px;
-border-radius:14px;
-font-weight:600;
-text-decoration:none;
-transition:.35s;
+/* PRIMARY BUTTON (Premium Gradient) */
+
+.btn-primary {
+    padding: 14px 28px;
+    border-radius: 50px;
+    background: linear-gradient(135deg,#00c6ff,#0072ff);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.35s ease;
+    box-shadow: 0 10px 25px rgba(0,114,255,0.4);
 }
 
-/* Primary button */
-.btn-primary{
-background:linear-gradient(135deg,#00d4ff,#0066ff);
-color:white;
-box-shadow:0 0 30px rgba(0,212,255,.4);
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(0,114,255,0.6);
 }
 
-.btn-primary:hover{
-transform:translateY(-4px) scale(1.05);
+
+/* GLASS BUTTON (Premium Glassmorphism) */
+
+.btn-glass {
+    padding: 14px 28px;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.2);
+
+    transition: all 0.35s ease;
 }
 
-/* Glass button */
-.btn-glass{
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.2);
-backdrop-filter:blur(12px);
-color:white;
+.btn-glass:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.15);
 }
-
-.btn-glass:hover{
-transform:translateY(-4px) scale(1.05);
-background:rgba(255,255,255,.15);
-}
-
 /* Animations */
 @keyframes slowZoom{
 from{transform:scale(1);}
