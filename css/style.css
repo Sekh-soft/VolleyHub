@@ -1,339 +1,184 @@
-/* =====================================================
-   RESET + GLOBAL
-===================================================== */
+/* ======================
+RESET
+====================== */
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:system-ui,-apple-system,Segoe UI,Roboto;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
 }
 
 body{
-    background:#05070d;
-    color:white;
-    overflow-x:hidden;
+background:#05070d;
+color:white;
+overflow:hidden;
 }
 
-
-/* =====================================================
-   HERO SECTION (MAIN LAYOUT)
-===================================================== */
+/* ======================
+HERO SECTION
+====================== */
 
 .hero{
-    height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
+height:100vh;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
 }
 
-
-/* =====================================================
-   BACKGROUND LAYERS
-===================================================== */
-
-/* Background Image */
+/* BACKGROUND */
 
 .hero-bg{
-    position:absolute;
-    inset:0;
-    background:url("../images/hero-bg.png.png") center/cover no-repeat;
-    opacity:.35;
-    animation:slowZoom 18s ease-in-out infinite alternate;
-    z-index:1;
+position:absolute;
+inset:0;
+background:url("../images/hero-bg.png.png") center/cover no-repeat;
+opacity:.35;
+animation:zoom 20s infinite alternate;
 }
-
-/* Glow lighting effect */
 
 .hero-light{
-    position:absolute;
-    width:700px;
-    height:700px;
-    background:radial-gradient(circle,#00d4ff,transparent 70%);
-    filter:blur(120px);
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    opacity:.35;
-    z-index:2;
+position:absolute;
+width:700px;
+height:700px;
+background:radial-gradient(circle,#00d4ff,transparent 70%);
+filter:blur(140px);
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+opacity:.4;
 }
-
-/* Floating particle pattern */
 
 .particles{
-    position:absolute;
-    inset:0;
-    background:
-        radial-gradient(circle at 20% 30%,rgba(255,255,255,.08) 2px,transparent 3px),
-        radial-gradient(circle at 80% 60%,rgba(255,255,255,.06) 2px,transparent 3px);
-    background-size:180px 180px;
-    animation:moveParticles 40s linear infinite;
-    z-index:2;
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle at 20% 30%,rgba(255,255,255,.08) 2px,transparent 3px),
+radial-gradient(circle at 80% 60%,rgba(255,255,255,.06) 2px,transparent 3px);
+background-size:180px 180px;
+animation:moveParticles 40s linear infinite;
 }
 
-
-/* =====================================================
-   HERO CONTENT
-===================================================== */
-
-.hero-content{
-    position:relative;
-    z-index:5;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    max-width:700px;
-    padding:20px;
-}
-
-
-/* =====================================================
-   LOGO
-===================================================== */
-
-.logo{
-    width:180px;
-    margin-bottom:25px;
-    animation:floatLogo 6s ease-in-out infinite;
-    filter:drop-shadow(0 0 35px rgba(0,212,255,.5));
-}
-
-
-/* =====================================================
-   TITLE + TEXT
-===================================================== */
-
-.hero-title{
-    font-size:72px;
-    font-weight:900;
-    letter-spacing:2px;
-    margin-bottom:15px;
-}
-
-.hero-title span{
-    color:#00d4ff;
-    text-shadow:0 0 25px #00d4ff;
-}
-
-.hero-sub{
-    font-size:20px;
-    opacity:.85;
-    margin-bottom:45px;
-}
-
-
-/* =====================================================
-   PREMIUM BUTTONS
-===================================================== */
-
-.hero-buttons{
-    display:flex;
-    gap:20px;
-    justify-content:center;
-    flex-wrap:wrap;
-}
-
-
-/* -------- PRIMARY BUTTON (Host Tournament) -------- */
-
-.btn-primary{
-    padding:16px 34px;
-    border-radius:50px;
-    background:linear-gradient(135deg,#00c6ff,#0072ff);
-    color:white;
-    font-weight:600;
-    text-decoration:none;
-    transition:.35s;
-    box-shadow:
-        0 10px 25px rgba(0,114,255,0.4),
-        0 0 20px rgba(0,212,255,.3);
-}
-
-.btn-primary:hover{
-    transform:translateY(-4px) scale(1.05);
-    box-shadow:
-        0 20px 45px rgba(0,114,255,0.7),
-        0 0 40px rgba(0,212,255,.5);
-}
-
-
-/* -------- GLASS BUTTON (Live Score) -------- */
-
-/* LIVE SCORE BUTTON (PREMIUM COLOR STYLE) */
-
-.btn-live{
-    padding:16px 34px;
-    border-radius:50px;
-    background:linear-gradient(135deg,#ff4ecd,#7b5cff);
-    color:white;
-    text-decoration:none;
-    font-weight:600;
-    transition:.35s;
-    box-shadow:
-        0 10px 25px rgba(123,92,255,.4),
-        0 0 25px rgba(255,78,205,.3);
-}
-
-.btn-live:hover{
-    transform:translateY(-4px) scale(1.05);
-    box-shadow:
-        0 20px 45px rgba(123,92,255,.7),
-        0 0 40px rgba(255,78,205,.5);
-}
-/* =============================
-   NAVBAR
-============================= */
+/* ======================
+NAVBAR
+====================== */
 
 .navbar{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 40px;
-    z-index:10;
-}
-
-.nav-left{
-    display:flex;
-    align-items:center;
+position:absolute;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 50px;
+z-index:10;
 }
 
 .logo{
-    width:140px;
-    transition:.3s;
+width:130px;
+filter:drop-shadow(0 0 20px rgba(0,212,255,.5));
 }
-
-.logo:hover{
-    transform:scale(1.05);
-}
-
-/* Right menu */
 
 .nav-right{
-    display:flex;
-    align-items:center;
-    gap:20px;
+display:flex;
+gap:25px;
+align-items:center;
 }
 
 .nav-link{
-    color:white;
-    text-decoration:none;
-    opacity:.8;
-    transition:.3s;
+text-decoration:none;
+color:white;
+opacity:.8;
 }
 
-.nav-link:hover{
-    opacity:1;
+.nav-btn{
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+padding:8px 18px;
+border-radius:30px;
+text-decoration:none;
+color:white;
 }
 
-/* Login button */
+/* ======================
+HERO CONTENT
+====================== */
 
-.nav-login{
-    padding:8px 18px;
-    border-radius:20px;
-    text-decoration:none;
-    color:white;
-    border:1px solid rgba(255,255,255,.3);
+.hero-content{
+position:relative;
+z-index:5;
+max-width:700px;
 }
 
-/* Register button */
-
-.nav-register{
-    padding:8px 20px;
-    border-radius:20px;
-    text-decoration:none;
-    background:linear-gradient(135deg,#00c6ff,#0072ff);
-    color:white;
-    font-weight:600;
-    box-shadow:0 0 20px rgba(0,114,255,.4);
+.hero-title{
+font-size:80px;
+font-weight:900;
 }
-/* =====================================================
-   ANIMATIONS
-===================================================== */
 
-@keyframes slowZoom{
-    from{transform:scale(1);}
-    to{transform:scale(1.08);}
+.hero-title span{
+color:#00d4ff;
+text-shadow:0 0 25px #00d4ff;
+}
+
+.hero-sub{
+margin-top:15px;
+opacity:.8;
+font-size:20px;
+}
+
+/* BUTTONS */
+
+.hero-buttons{
+margin-top:40px;
+display:flex;
+gap:20px;
+justify-content:center;
+}
+
+/* HOST TOURNAMENT */
+
+.btn-primary{
+padding:16px 32px;
+border-radius:50px;
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+color:white;
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
+box-shadow:0 10px 25px rgba(0,114,255,.5);
+}
+
+.btn-primary:hover{
+transform:translateY(-4px);
+}
+
+/* LIVE SCORE (NOW PREMIUM TOO) */
+
+.btn-secondary{
+padding:16px 32px;
+border-radius:50px;
+background:linear-gradient(135deg,#ff5f6d,#ffc371);
+color:white;
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
+box-shadow:0 10px 25px rgba(255,95,109,.4);
+}
+
+.btn-secondary:hover{
+transform:translateY(-4px);
+}
+
+/* ANIMATIONS */
+
+@keyframes zoom{
+from{transform:scale(1);}
+to{transform:scale(1.08);}
 }
 
 @keyframes moveParticles{
-    from{transform:translateY(0);}
-    to{transform:translateY(-200px);}
+from{transform:translateY(0);}
+to{transform:translateY(-200px);}
 }
-
-@keyframes floatLogo{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-15px);}
-    100%{transform:translateY(0);}
-}
-
-
-/* =====================================================
-   MOBILE RESPONSIVE
-===================================================== */
-
-@media(max-width:700px){
-
-    .hero-title{
-        font-size:46px;
-    }
-
-    .logo{
-        width:140px;
-    }
-
-}
-
-
-/* =============================
-   PREMIUM LOGO STYLE
-============================= */
-
-.logo{
-    width:150px;
-    transition: all 0.4s ease;
-    position:relative;
-
-    /* premium glow */
-    filter:
-        drop-shadow(0 0 10px rgba(0,212,255,.6))
-        drop-shadow(0 0 30px rgba(0,114,255,.4));
-
-    animation:logoFloat 5s ease-in-out infinite;
-}
-
-/* hover effect like pro startup */
-.logo:hover{
-    transform:scale(1.08) rotate(-1deg);
-    filter:
-        drop-shadow(0 0 15px rgba(0,212,255,.9))
-        drop-shadow(0 0 50px rgba(0,114,255,.6));
-}
-
-/* floating animation */
-@keyframes logoFloat{
-    0%{ transform:translateY(0); }
-    50%{ transform:translateY(-6px); }
-    100%{ transform:translateY(0); }
-}
-.nav-left{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-/* optional brand text next to logo */
-.brand-name{
-    font-weight:700;
-    font-size:20px;
-    letter-spacing:.5px;
-    color:white;
-}
-
