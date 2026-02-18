@@ -290,3 +290,50 @@ body{
     }
 
 }
+
+
+/* =============================
+   PREMIUM LOGO STYLE
+============================= */
+
+.logo{
+    width:150px;
+    transition: all 0.4s ease;
+    position:relative;
+
+    /* premium glow */
+    filter:
+        drop-shadow(0 0 10px rgba(0,212,255,.6))
+        drop-shadow(0 0 30px rgba(0,114,255,.4));
+
+    animation:logoFloat 5s ease-in-out infinite;
+}
+
+/* hover effect like pro startup */
+.logo:hover{
+    transform:scale(1.08) rotate(-1deg);
+    filter:
+        drop-shadow(0 0 15px rgba(0,212,255,.9))
+        drop-shadow(0 0 50px rgba(0,114,255,.6));
+}
+
+/* floating animation */
+@keyframes logoFloat{
+    0%{ transform:translateY(0); }
+    50%{ transform:translateY(-6px); }
+    100%{ transform:translateY(0); }
+}
+.nav-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+/* optional brand text next to logo */
+.brand-name{
+    font-weight:700;
+    font-size:20px;
+    letter-spacing:.5px;
+    color:white;
+}
+
