@@ -77,6 +77,60 @@ from{transform:scale(1);}
 to{transform:scale(1.08);}
 }
 
+.hero-wrapper{
+display:flex;
+align-items:center;
+justify-content:space-between;
+max-width:1200px;
+width:100%;
+margin:auto;
+gap:60px;
+position:relative;
+z-index:5;
+}
+
+.hero-left{
+flex:1;
+text-align:left;
+}
+
+.hero-right{
+flex:1;
+display:flex;
+justify-content:center;
+}
+
+.hero-logo{
+width:420px;
+animation:floatLogo 6s ease-in-out infinite;
+filter:drop-shadow(0 0 40px rgba(0,212,255,.5));
+}
+
+@keyframes floatLogo{
+0%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0);}
+}
+
+/* Mobile fix */
+@media(max-width:900px){
+
+.hero-wrapper{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-left{
+text-align:center;
+}
+
+.hero-logo{
+width:260px;
+margin-top:30px;
+}
+
+}
+
 
 /* =============================
    HERO CONTENT
