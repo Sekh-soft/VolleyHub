@@ -246,3 +246,45 @@ color:#00d4ff;
 transform:translateY(-10px);
 box-shadow:0 0 25px #00d4ff;
 }
+.hero-buttons{
+display:flex;
+gap:20px;
+justify-content:center;
+margin-top:30px;
+}
+
+/* PRIMARY BUTTON */
+
+.btn-primary{
+padding:14px 30px;
+border-radius:50px;
+background:linear-gradient(135deg,#00d4ff,#0072ff);
+color:white;
+font-weight:600;
+text-decoration:none;
+transition:.3s;
+box-shadow:0 0 25px rgba(0,212,255,.5);
+}
+
+.btn-primary:hover{
+transform:translateY(-3px);
+box-shadow:0 0 50px rgba(0,212,255,.9);
+}
+
+/* SECONDARY BUTTON */
+
+.btn-secondary{
+padding:14px 30px;
+border-radius:50px;
+background:linear-gradient(135deg,#ff3b8d,#ff0066);
+color:white;
+font-weight:600;
+text-decoration:none;
+transition:.3s;
+box-shadow:0 0 25px rgba(255,0,102,.4);
+}
+
+.btn-secondary:hover{
+transform:translateY(-3px);
+box-shadow:0 0 50px rgba(255,0,102,.8);
+}
