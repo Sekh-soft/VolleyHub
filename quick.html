@@ -1,23 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Quick Score – VolleyHub</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VolleyWolley Live Score</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<h2>Live Quick Score</h2>
-<input id="teamAName" placeholder="Team A Name">
-<input id="teamBName" placeholder="Team B Name">
-<br>
-<button onclick="startMatch()">Start Match</button>
-<hr>
-<h1 id="teamA">0</h1>
-<button onclick="addPoint('A')">Team A +</button>
-<h1 id="teamB">0</h1>
-<button onclick="addPoint('B')">Team B +</button>
-<script src="js/firebase.js"></script>
-<script src="js/quick.js"></script>
+
+    <!-- ==================== NAVBAR WITH SETTINGS ICON ==================== -->
+    <div class="navbar">
+        <img src="images/logo.png" class="nav-logo" alt="VolleyWolley Logo">
+        <!-- Settings Icon -->
+        <button id="settingsButton" class="btn-nav">⚙️ Settings</button>
+    </div>
+
+    <!-- ==================== SETTINGS MODAL ==================== -->
+    <div id="settingsModal" class="settings-modal">
+        <div class="settings-content">
+            <h2>Live Score</h2>
+            <label for="sets">Number of Sets:</label>
+            <input type="number" id="sets" min="1" max="7" value="3">
+            <br>
+            <label for="teamANameInput">Team A Name:</label>
+            <input type="text" id="teamANameInput" placeholder="Enter Team A Name">
+            <br>
+            <label for="teamBNameInput">Team B Name:</label>
+            <input type="text" id="teamBNameInput" placeholder="Enter Team B Name">
+            <br>
+            <label for="mom">Player of the Match (MOM):</label>
+            <input type="text" id="mom" placeholder="Enter MOM Name">
+            <br>
+            <button id="startMatch">Start Match</button>
+            <button id="closeSettingsModal">Close</button>
+        </div>
+    </div>
+
+    <!-- ==================== MATCH SCOREBOARD ==================== -->
+    <div class="scoreboard">
+        <div class="teams">
+            <div class="team" id="teamA">
+                <h3 id="teamAName">Team A</h3>
+                <div id="scoreA">0</div>
+            </div>
+            <div class="vs">VS</div>
+            <div class="team" id="teamB">
+                <h3 id="teamBName">Team B</h3>
+                <div id="scoreB">0</div>
+            </div>
+        </div>
+        
+        <div class="timer">
+            <span id="timerDisplay">00:00</span>
+            <button id="startStopButton">Start</button>
+            <button id="resetButton">Reset</button>
+        </div>
+
+        <div class="match-controls">
+            <button id="incrementA">+1 Team A</button>
+            <button id="decrementA">-1 Team A</button>
+            <button id="incrementB">+1 Team B</button>
+            <button id="decrementB">-1 Team B</button>
+            <button id="nextSetButton">Next Set</button>
+            <button id="saveScoreButton">Save Score</button>
+        </div>
+        
+        <div class="sets">
+            <h3>Sets Progress</h3>
+            <div id="setsProgress">Set 1: Team A 0 - Team B 0</div>
+        </div>
+    </div>
+
+    <script src="js/firebase.js"></script>
+    <script src="js/quick.js"></script>
 </body>
 </html>

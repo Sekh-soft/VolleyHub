@@ -218,3 +218,171 @@ transition:.35s;
 transform:translateY(-4px);
 box-shadow:0 0 80px rgba(255,0,102,1);
 }
+
+/* ================= RESET ================= */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto;
+}
+
+/* ================= MAIN BODY ================= */
+body {
+    background-color: #05070d;
+    color: white;
+    text-align: center;
+}
+
+/* ==================== SETTINGS PANEL ==================== */
+.settings {
+    margin-top: 20px;
+}
+
+.settings h2 {
+    font-size: 24px;
+}
+
+.settings label {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.settings input {
+    padding: 8px;
+    margin: 10px;
+    font-size: 16px;
+}
+
+.settings button {
+    padding: 12px 25px;
+    background-color: #00d4ff;
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.settings button:hover {
+    background-color: #0072ff;
+}
+
+/* ==================== SCOREBOARD ==================== */
+.scoreboard {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    margin: 30px auto;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+.teams {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.team {
+    font-size: 24px;
+}
+
+#scoreA, #scoreB {
+    font-size: 36px;
+    font-weight: bold;
+    color: #00d4ff;
+}
+
+.vs {
+    font-size: 32px;
+    margin-top: 10px;
+    color: white;
+}
+
+.timer {
+    margin-bottom: 20px;
+}
+
+#timerDisplay {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #00d4ff;
+}
+
+button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #00d4ff, #0072ff);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #00d4ff, #0066ff);
+    transform: translateY(-3px);
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* ==================== SETS ==================== */
+.sets {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.sets div {
+    font-size: 16px;
+    color: #ff3b8d;
+}
+
+/* ==========================
+   LIVE SCORE PAGE BACKGROUND
+============================ */
+
+body {
+  background: url('../images/live-score.png') no-repeat center center fixed; /* Ensure the image path is correct */
+  background-size: cover; /* Cover the entire screen */
+  color: white; /* Ensure text is visible on dark background */
+  font-family: Arial, sans-serif;
+}
+
+.scoreboard {
+  position: relative;
+  z-index: 2; /* Ensure the scoreboard content is above the background */
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5); /* Optional: darken the background for better text visibility */
+  border-radius: 10px;
+}
+
+.timer {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.match-controls button,
+#saveScoreButton {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 12px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  margin: 5px;
+  transition: background 0.3s ease;
+}
+
+.match-controls button:hover,
+#saveScoreButton:hover {
+  background: rgba(255, 255, 255, 0.6);
+}

@@ -81,3 +81,70 @@ Live Score
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Score - VolleyWolley</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to CSS -->
+</head>
+<body>
+
+<!-- ==================== SETTINGS PANEL ==================== -->
+<div class="settings">
+    <h2>Match Settings</h2>
+    <label for="sets">Number of Sets:</label>
+    <input type="number" id="sets" min="1" max="7" value="3">
+    <br>
+    <label for="playerA">Player A Name:</label>
+    <input type="text" id="playerA" placeholder="Enter Team A Player Name">
+    <br>
+    <label for="playerB">Player B Name:</label>
+    <input type="text" id="playerB" placeholder="Enter Team B Player Name">
+    <br>
+    <label for="mom">Player of the Match (MOM):</label>
+    <input type="text" id="mom" placeholder="Enter MOM Name">
+    <br>
+    <button id="startMatch">Start Match</button>
+</div>
+
+<!-- ==================== MATCH SCOREBOARD ==================== -->
+<div class="scoreboard">
+    <div class="teams">
+        <div class="team" id="teamA">
+            <h3 id="teamAName">Team A</h3>
+            <div id="scoreA">0</div>
+        </div>
+        <div class="vs">VS</div>
+        <div class="team" id="teamB">
+            <h3 id="teamBName">Team B</h3>
+            <div id="scoreB">0</div>
+        </div>
+    </div>
+    
+    <div class="timer">
+        <span id="timerDisplay">00:00</span>
+        <button id="startStopButton">Start</button>
+        <button id="resetButton">Reset</button>
+    </div>
+
+    <div class="match-controls">
+        <button id="incrementA">+1 Team A</button>
+        <button id="decrementA">-1 Team A</button>
+        <button id="incrementB">+1 Team B</button>
+        <button id="decrementB">-1 Team B</button>
+        <button id="nextSetButton">Next Set</button>
+        <button id="saveScoreButton">Save Score</button>
+    </div>
+    
+    <div class="sets">
+        <h3>Sets Progress</h3>
+        <div id="setsProgress">Set 1: Team A 0 - Team B 0</div>
+    </div>
+</div>
+
+<script src="main.js"></script> <!-- Link to JS -->
+</body>
+</html>
