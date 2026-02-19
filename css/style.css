@@ -45,30 +45,157 @@ z-index:-2;
 /* ================= NAVBAR ================= */
 
 .navbar{
+
 position:fixed;
 top:20px;
 left:50%;
 transform:translateX(-50%);
 width:90%;
-padding:12px 25px;
+padding:14px 28px;
+
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(14px);
-border-radius:50px;
+
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(18px);
+
+border-radius:60px;
 border:1px solid rgba(255,255,255,0.1);
+
 z-index:100;
+
 }
 
 .nav-logo{
-width:140px;
-height:auto;
+
+width:130px;
+filter:drop-shadow(0 0 20px #00d4ff);
+
 }
 
-.nav-logo span{
-color:#00d4ff;
+
+/* NAV BUTTON GROUP */
+
+.nav-right{
+
+display:flex;
+gap:16px;
+align-items:center;
+
 }
+
+.btn-nav{
+
+padding:10px 22px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+color:white;
+transition:.35s;
+
+}
+
+/* LOGIN */
+
+.login{
+
+background:rgba(255,255,255,0.08);
+
+}
+
+.login:hover{
+
+background:rgba(255,255,255,0.2);
+transform:translateY(-2px);
+
+}
+
+/* REGISTER GOD BUTTON */
+
+.register{
+
+background:linear-gradient(135deg,#00d4ff,#0072ff);
+box-shadow:0 0 25px rgba(0,212,255,.5);
+
+}
+
+.register:hover{
+
+transform:translateY(-3px);
+box-shadow:0 0 60px rgba(0,212,255,1);
+
+}
+
+/* BADDIE GOD MODE */
+
+.baddie{
+
+border:2px solid #ff0066;
+color:#ff0066;
+
+}
+
+.baddie:hover{
+
+background:#ff0066;
+color:white;
+box-shadow:0 0 35px #ff0066;
+
+}
+
+
+/* HERO BUTTON GOD MODE */
+
+.btn-primary{
+
+padding:15px 32px;
+border-radius:50px;
+
+background:linear-gradient(135deg,#00d4ff,#0072ff);
+
+color:white;
+font-weight:700;
+text-decoration:none;
+
+box-shadow:0 0 35px rgba(0,212,255,.6);
+
+transition:.35s;
+
+}
+
+.btn-primary:hover{
+
+transform:translateY(-4px);
+box-shadow:0 0 80px rgba(0,212,255,1);
+
+}
+
+
+.btn-secondary{
+
+padding:15px 32px;
+border-radius:50px;
+
+background:linear-gradient(135deg,#ff3b8d,#ff0066);
+
+color:white;
+font-weight:700;
+text-decoration:none;
+
+box-shadow:0 0 35px rgba(255,0,102,.5);
+
+transition:.35s;
+
+}
+
+.btn-secondary:hover{
+
+transform:translateY(-4px);
+box-shadow:0 0 80px rgba(255,0,102,1);
+
+}
+
 
 /* ================= HERO ================= */
 
