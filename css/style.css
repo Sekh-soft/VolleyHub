@@ -1,6 +1,6 @@
-/* ======================
+/* =============================
 RESET
-====================== */
+============================= */
 
 *{
 margin:0;
@@ -12,58 +12,12 @@ font-family:system-ui,-apple-system,Segoe UI,Roboto;
 body{
 background:#05070d;
 color:white;
-overflow:hidden;
+overflow-x:hidden;
 }
 
-/* ======================
-HERO SECTION
-====================== */
-
-.hero{
-height:100vh;
-position:relative;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-overflow:hidden;
-}
-
-/* BACKGROUND */
-
-.hero-bg{
-position:absolute;
-inset:0;
-background:url("../images/hero-bg.png.png") center/cover no-repeat;
-opacity:.35;
-animation:zoom 20s infinite alternate;
-}
-
-.hero-light{
-position:absolute;
-width:700px;
-height:700px;
-background:radial-gradient(circle,#00d4ff,transparent 70%);
-filter:blur(140px);
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-opacity:.4;
-}
-
-.particles{
-position:absolute;
-inset:0;
-background:
-radial-gradient(circle at 20% 30%,rgba(255,255,255,.08) 2px,transparent 3px),
-radial-gradient(circle at 80% 60%,rgba(255,255,255,.06) 2px,transparent 3px);
-background-size:180px 180px;
-animation:moveParticles 40s linear infinite;
-}
-
-/* ======================
-NAVBAR
-====================== */
+/* =============================
+NAVBAR (ULTRA PREMIUM)
+============================= */
 
 .navbar{
 position:absolute;
@@ -73,112 +27,166 @@ width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 50px;
-z-index:10;
+padding:20px 60px;
+z-index:999;
 }
 
-.logo{
-width:130px;
-filter:drop-shadow(0 0 20px rgba(0,212,255,.5));
+.nav-logo{
+width:140px;
+filter:drop-shadow(0 0 25px #00d4ff);
 }
+
+/* NAV BUTTONS */
 
 .nav-right{
 display:flex;
-gap:25px;
-align-items:center;
-}
-
-.nav-link{
-text-decoration:none;
-color:white;
-opacity:.8;
+gap:15px;
 }
 
 .nav-btn{
-background:linear-gradient(135deg,#00c6ff,#0072ff);
-padding:8px 18px;
-border-radius:30px;
+padding:10px 20px;
+border-radius:40px;
 text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+/* Glass login */
+.glass{
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.2);
+backdrop-filter:blur(10px);
 color:white;
 }
 
-/* ======================
-HERO CONTENT
-====================== */
+.glass:hover{
+background:rgba(255,255,255,.15);
+}
+
+/* Register primary */
+.primary{
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+box-shadow:0 0 20px rgba(0,114,255,.5);
+color:white;
+}
+
+.primary:hover{
+transform:translateY(-2px);
+}
+
+/* BaddieHub neon button */
+.neon{
+background:black;
+border:1px solid #ff00ff;
+color:#ff00ff;
+box-shadow:0 0 15px #ff00ff;
+}
+
+.neon:hover{
+box-shadow:0 0 35px #ff00ff;
+}
+
+/* =============================
+HERO
+============================= */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+text-align:center;
+overflow:hidden;
+}
+
+.hero-bg{
+position:absolute;
+inset:0;
+background:url("../images/hero-bg.png") center/cover no-repeat;
+opacity:.35;
+}
+
+.hero-light{
+position:absolute;
+width:700px;
+height:700px;
+background:radial-gradient(circle,#00d4ff,transparent 70%);
+filter:blur(120px);
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+}
+
+.particles{
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle at 20% 30%,rgba(255,255,255,.08) 2px,transparent 3px),
+radial-gradient(circle at 80% 60%,rgba(255,255,255,.06) 2px,transparent 3px);
+background-size:180px 180px;
+}
+
+/* CONTENT */
 
 .hero-content{
 position:relative;
-z-index:5;
+z-index:10;
 max-width:700px;
 }
 
+/* TITLE */
+
 .hero-title{
-font-size:80px;
+font-size:72px;
 font-weight:900;
 }
 
 .hero-title span{
 color:#00d4ff;
-text-shadow:0 0 25px #00d4ff;
+text-shadow:0 0 30px #00d4ff;
 }
 
 .hero-sub{
 margin-top:15px;
 opacity:.8;
-font-size:20px;
 }
 
 /* BUTTONS */
 
 .hero-buttons{
-margin-top:40px;
+margin-top:35px;
 display:flex;
-gap:20px;
 justify-content:center;
+gap:20px;
 }
 
-/* HOST TOURNAMENT */
-
 .btn-primary{
-padding:16px 32px;
+padding:15px 30px;
 border-radius:50px;
 background:linear-gradient(135deg,#00c6ff,#0072ff);
-color:white;
 text-decoration:none;
-font-weight:bold;
-transition:.3s;
+color:white;
 box-shadow:0 10px 25px rgba(0,114,255,.5);
+transition:.3s;
 }
 
 .btn-primary:hover{
-transform:translateY(-4px);
+transform:translateY(-3px);
 }
 
-/* LIVE SCORE (NOW PREMIUM TOO) */
-
-.btn-secondary{
-padding:16px 32px;
+.btn-glass{
+padding:15px 30px;
 border-radius:50px;
-background:linear-gradient(135deg,#ff5f6d,#ffc371);
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.2);
 color:white;
 text-decoration:none;
-font-weight:bold;
-transition:.3s;
-box-shadow:0 10px 25px rgba(255,95,109,.4);
 }
 
-.btn-secondary:hover{
-transform:translateY(-4px);
-}
+/* LIVE SCORE COLORFUL */
 
-/* ANIMATIONS */
-
-@keyframes zoom{
-from{transform:scale(1);}
-to{transform:scale(1.08);}
-}
-
-@keyframes moveParticles{
-from{transform:translateY(0);}
-to{transform:translateY(-200px);}
+.colorful{
+background:linear-gradient(135deg,#ff00cc,#ff7b00);
+box-shadow:0 0 20px rgba(255,0,200,.5);
 }
