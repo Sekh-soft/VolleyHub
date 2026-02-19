@@ -1,21 +1,16 @@
 /* ===============================
-   VOLLEYHUB GOD MODE JS
+   VOLLEYWOLLEY GOD MODE JS
 ================================ */
 
-/* ===============================
-   Mouse Glow Effect
-================================ */
+/* Mouse Glow Effect */
 
 const glow = document.querySelector(".mouse-glow");
 
-// Prevent errors if element not found
-if (glow) {
+document.addEventListener("mousemove", (e) => {
 
-    document.addEventListener("mousemove", (e) => {
+    if(!glow) return;
 
-        glow.style.left = e.clientX + "px";
-        glow.style.top = e.clientY + "px";
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
 
-    });
-
-}
+});
