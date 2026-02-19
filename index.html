@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VolleYWolleY</title>
+<title>VolleyWolley</title>
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -14,65 +13,103 @@
 
 <body>
 
+<!-- MOUSE GLOW -->
+<div class="mouse-glow"></div>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+<div class="nav-logo">
+Volley<span>Wolley</span>
+</div>
+
+<div class="nav-buttons">
+
+<a href="#" class="btn-nav register">Register</a>
+<a href="#" class="btn-nav login">Login</a>
+<a href="#" class="btn-nav baddie">BaddieHub</a>
+
+</div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
 <header class="hero">
 
-    <!-- BACKGROUND -->
-    <div class="hero-bg"></div>
-    <div class="hero-light"></div>
-    <div class="particles"></div>
+<div class="hero-bg"></div>
+<div class="hero-light"></div>
+<div class="particles"></div>
 
-    <!-- FLOATING PREMIUM NAVBAR -->
-    <nav class="navbar">
+<div class="hero-content">
 
-        <div class="nav-left">
-            <img src="images/logo.png" class="logo">
-        </div>
+<img src="images/logo.png" class="logo" alt="VolleyWolley Logo">
 
-        <div class="nav-right">
+<h1 class="hero-title">
+Volley<span>Wolley</span>
+</h1>
 
-            <a href="https://baddiehub.com" class="nav-baddie">
-                BaddieHub
-            </a>
+<p class="hero-sub">
+Volleyball tournament platform with real-time scoring.
+</p>
 
-            <a href="#" class="nav-login">
-                Login
-            </a>
+<div class="hero-buttons">
 
-            <a href="#" class="nav-register">
-                Register
-            </a>
+<a href="tournament.html" class="btn-primary">
+Host Tournament
+</a>
 
-        </div>
+<a href="quick.html" class="btn-glass">
+Live Score
+</a>
 
-    </nav>
+</div>
 
-
-    <!-- HERO CONTENT -->
-    <div class="hero-content">
-
-        <h1 class="hero-title">
-            VolleY<span>WolleY</span>
-        </h1>
-
-        <p class="hero-sub">
-            Next-generation volleyball tournament & live scoring platform.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="tournament.html" class="btn-primary">
-                Host Tournament
-            </a>
-
-            <a href="quick.html" class="btn-secondary">
-                Live Score
-            </a>
-
-        </div>
-
-    </div>
+</div>
 
 </header>
+
+
+<!-- ================= LIVE SECTION ================= -->
+
+<section class="live-section">
+
+<h2>🔥 Live Matches</h2>
+
+<div class="live-grid">
+
+<div class="live-card">
+Team A vs Team B
+<span>LIVE</span>
+</div>
+
+<div class="live-card">
+Team X vs Team Y
+<span>SET 2</span>
+</div>
+
+<div class="live-card">
+Team Alpha vs Beta
+<span>UPCOMING</span>
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+const glow = document.querySelector(".mouse-glow");
+
+document.addEventListener("mousemove",(e)=>{
+glow.style.left = e.clientX+"px";
+glow.style.top = e.clientY+"px";
+});
+
+</script>
 
 </body>
 </html>
