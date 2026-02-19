@@ -4,14 +4,14 @@ import 'firebase/database'; // For real-time database
 import 'firebase/auth'; // For authentication (optional, for user login)
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDWlOWLU6kN3Mvk8hoR3Bgkkij0z0sQ1x8",
+  apiKey: "",
   authDomain: "volleywolleyscoreapp.firebaseapp.com",
   databaseURL: "https://volleywolleyscoreapp-default-rtdb.firebaseio.com",
   projectId: "volleywolleyscoreapp",
   storageBucket: "volleywolleyscoreapp.firebasestorage.app",
-  messagingSenderId: "910935210662",
-  appId: "1:910935210662:web:d9eb1ed70b8e6f8f3bd267",
-  measurementId: "G-H7WEWLQJXD"
+  messagingSenderId: "",
+  appId: "",
+  measurementId: ""
 };
 
 // Initialize Firebase only once
