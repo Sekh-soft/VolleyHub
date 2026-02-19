@@ -81,6 +81,11 @@ position:relative;
 overflow:hidden;
 text-align:center;
 }
+.hero > * {
+position:relative;
+z-index:2;
+}
+
 
 /* HERO BACKGROUND FIX */
 
