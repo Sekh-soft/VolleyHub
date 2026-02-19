@@ -1,110 +1,44 @@
-/* =============================
+/* =========================
 RESET
-============================= */
+========================= */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:system-ui,-apple-system,Segoe UI,Roboto;
+font-family:-apple-system,BlinkMacSystemFont,Segoe UI;
 }
 
 body{
-background:#05070d;
+background:#04060c;
 color:white;
-overflow-x:hidden;
+overflow:hidden;
 }
 
-/* =============================
-NAVBAR (ULTRA PREMIUM)
-============================= */
 
-.navbar{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 60px;
-z-index:999;
-}
-
-.nav-logo{
-width:140px;
-filter:drop-shadow(0 0 25px #00d4ff);
-}
-
-/* NAV BUTTONS */
-
-.nav-right{
-display:flex;
-gap:15px;
-}
-
-.nav-btn{
-padding:10px 20px;
-border-radius:40px;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
-}
-
-/* Glass login */
-.glass{
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.2);
-backdrop-filter:blur(10px);
-color:white;
-}
-
-.glass:hover{
-background:rgba(255,255,255,.15);
-}
-
-/* Register primary */
-.primary{
-background:linear-gradient(135deg,#00c6ff,#0072ff);
-box-shadow:0 0 20px rgba(0,114,255,.5);
-color:white;
-}
-
-.primary:hover{
-transform:translateY(-2px);
-}
-
-/* BaddieHub neon button */
-.neon{
-background:black;
-border:1px solid #ff00ff;
-color:#ff00ff;
-box-shadow:0 0 15px #ff00ff;
-}
-
-.neon:hover{
-box-shadow:0 0 35px #ff00ff;
-}
-
-/* =============================
-HERO
-============================= */
+/* =========================
+HERO SECTION
+========================= */
 
 .hero{
 height:100vh;
+position:relative;
 display:flex;
 align-items:center;
 justify-content:center;
-position:relative;
 text-align:center;
 overflow:hidden;
 }
+
+
+/* BACKGROUND */
 
 .hero-bg{
 position:absolute;
 inset:0;
 background:url("../images/hero-bg.png") center/cover no-repeat;
 opacity:.35;
+animation:zoom 18s infinite alternate ease-in-out;
 }
 
 .hero-light{
@@ -112,7 +46,7 @@ position:absolute;
 width:700px;
 height:700px;
 background:radial-gradient(circle,#00d4ff,transparent 70%);
-filter:blur(120px);
+filter:blur(140px);
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
@@ -127,66 +61,132 @@ radial-gradient(circle at 80% 60%,rgba(255,255,255,.06) 2px,transparent 3px);
 background-size:180px 180px;
 }
 
-/* CONTENT */
+
+/* =========================
+PREMIUM NAVBAR
+========================= */
+
+.navbar{
+position:absolute;
+top:20px;
+width:90%;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 25px;
+
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(18px);
+border-radius:60px;
+border:1px solid rgba(255,255,255,.1);
+}
+
+.logo{
+width:120px;
+filter:drop-shadow(0 0 30px #00d4ff);
+}
+
+.nav-right{
+display:flex;
+gap:15px;
+}
+
+
+/* NAV BUTTONS */
+
+.nav-baddie,
+.nav-login,
+.nav-register{
+padding:10px 20px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.nav-baddie{
+color:#00d4ff;
+border:1px solid #00d4ff;
+}
+
+.nav-login{
+background:rgba(255,255,255,.08);
+color:white;
+}
+
+.nav-register{
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+color:white;
+box-shadow:0 0 20px rgba(0,114,255,.6);
+}
+
+
+/* =========================
+HERO CONTENT
+========================= */
 
 .hero-content{
-position:relative;
-z-index:10;
+z-index:5;
 max-width:700px;
 }
 
-/* TITLE */
-
 .hero-title{
-font-size:72px;
+font-size:78px;
 font-weight:900;
 }
 
 .hero-title span{
 color:#00d4ff;
-text-shadow:0 0 30px #00d4ff;
+text-shadow:0 0 25px #00d4ff;
 }
 
 .hero-sub{
 margin-top:15px;
 opacity:.8;
+font-size:20px;
 }
 
-/* BUTTONS */
+
+/* =========================
+BUTTONS
+========================= */
 
 .hero-buttons{
-margin-top:35px;
+margin-top:40px;
 display:flex;
-justify-content:center;
 gap:20px;
+justify-content:center;
 }
 
-.btn-primary{
-padding:15px 30px;
+.btn-primary,
+.btn-secondary{
+padding:16px 34px;
 border-radius:50px;
-background:linear-gradient(135deg,#00c6ff,#0072ff);
+font-weight:600;
 text-decoration:none;
-color:white;
-box-shadow:0 10px 25px rgba(0,114,255,.5);
 transition:.3s;
 }
 
-.btn-primary:hover{
-transform:translateY(-3px);
-}
-
-.btn-glass{
-padding:15px 30px;
-border-radius:50px;
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.2);
+.btn-primary{
+background:linear-gradient(135deg,#00c6ff,#0072ff);
 color:white;
-text-decoration:none;
+box-shadow:0 0 25px rgba(0,114,255,.6);
 }
 
-/* LIVE SCORE COLORFUL */
+.btn-secondary{
+background:linear-gradient(135deg,#ff4b2b,#ff416c);
+color:white;
+box-shadow:0 0 25px rgba(255,65,108,.6);
+}
 
-.colorful{
-background:linear-gradient(135deg,#ff00cc,#ff7b00);
-box-shadow:0 0 20px rgba(255,0,200,.5);
+
+/* =========================
+ANIMATIONS
+========================= */
+
+@keyframes zoom{
+from{transform:scale(1);}
+to{transform:scale(1.08);}
 }
