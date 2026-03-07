@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>VolleyHub Tournament</title>
 
@@ -18,18 +18,19 @@
 
 <div class="team-input">
 
-<input id="team1" placeholder="Team 1">
-<input id="team2" placeholder="Team 2">
-<input id="team3" placeholder="Team 3">
-<input id="team4" placeholder="Team 4">
-<input id="team5" placeholder="Team 5">
-<input id="team6" placeholder="Team 6">
-<input id="team7" placeholder="Team 7">
-<input id="team8" placeholder="Team 8">
+<input id="team1" type="text" placeholder="Team 1">
+<input id="team2" type="text" placeholder="Team 2">
+<input id="team3" type="text" placeholder="Team 3">
+<input id="team4" type="text" placeholder="Team 4">
+<input id="team5" type="text" placeholder="Team 5">
+<input id="team6" type="text" placeholder="Team 6">
+<input id="team7" type="text" placeholder="Team 7">
+<input id="team8" type="text" placeholder="Team 8">
 
 <button onclick="generateBracket()">Generate Bracket</button>
 
 </div>
+
 
 <div class="bracket">
 
@@ -37,10 +38,10 @@
 
 <h2>Quarter Finals</h2>
 
-<div id="q1"></div>
-<div id="q2"></div>
-<div id="q3"></div>
-<div id="q4"></div>
+<div id="q1" class="match"></div>
+<div id="q2" class="match"></div>
+<div id="q3" class="match"></div>
+<div id="q4" class="match"></div>
 
 </div>
 
@@ -49,8 +50,8 @@
 
 <h2>Semi Finals</h2>
 
-<div id="s1">Winner Q1 vs Winner Q2</div>
-<div id="s2">Winner Q3 vs Winner Q4</div>
+<div id="s1" class="match">Winner Q1 vs Winner Q2</div>
+<div id="s2" class="match">Winner Q3 vs Winner Q4</div>
 
 </div>
 
@@ -59,13 +60,14 @@
 
 <h2>Final</h2>
 
-<div id="final">Winner S1 vs Winner S2</div>
+<div id="final" class="match">Winner S1 vs Winner S2</div>
 
 </div>
 
 </div>
 
-<script src="js/tournament.js"></script>
+
+<script src="js/tournament.js" defer></script>
 
 </body>
 </html>

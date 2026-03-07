@@ -1,57 +1,135 @@
 /* =====================================
-   VOLLEYHUB MAIN.JS (STABLE VERSION)
+   VOLLEYHUB MAIN.JS (GLOBAL VERSION)
 ===================================== */
 
 
 /* ===============================
-   GAME VARIABLES
+   SAFE DOM GET
 ================================ */
 
-let scoreA = 0;
-let scoreB = 0;
+function el(id){
+return document.getElementById(id)
+}
 
-let setA = 0;
-let setB = 0;
 
-let serve = "Team A";
+/* ===============================
+   PARTICLE BACKGROUND (HOMEPAGE)
+================================ */
 
-let timer = 0;
-let running = false;
-let interval = null;
+const canvas = el("particles")
 
-let history = [];
+if(canvas){
+
+const ctx = canvas.getContext("2d")
+
+canvas.width = window.innerWidth
+canvas.height = window.innerHeight
+
+let particles = []
+
+for(let i=0;i<80;i++){
+
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+size:Math.random()*2+1,
+speedX:(Math.random()-0.5)*0.6,
+speedY:(Math.random()-0.5)*0.6
+})
+
+}
+
+function animateParticles(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height)
+
+ctx.fillStyle="rgba(0,212,255,0.7)"
+
+particles.forEach(p=>{
+
+p.x+=p.speedX
+p.y+=p.speedY
+
+if(p.x<0||p.x>canvas.width)p.speedX*=-1
+if(p.y<0||p.y>canvas.height)p.speedY*=-1
+
+ctx.beginPath()
+ctx.arc(p.x,p.y,p.size,0,Math.PI*2)
+ctx.fill()
+
+})
+
+requestAnimationFrame(animateParticles)
+
+}
+
+animateParticles()
+
+window.addEventListener("resize",()=>{
+canvas.width=window.innerWidth
+canvas.height=window.innerHeight
+})
+
+}
+
+
+/* ===============================
+   SCOREBOARD STATE
+================================ */
+
+let scoreA = 0
+let scoreB = 0
+
+let setA = 0
+let setB = 0
+
+let serve = "Team A"
+
+let timer = 0
+let running = false
+let interval = null
+
+let history = []
 
 
 /* ===============================
    DOM ELEMENTS
 ================================ */
 
-const scoreAElement = document.getElementById("scoreA");
-const scoreBElement = document.getElementById("scoreB");
+const scoreAElement = el("scoreA")
+const scoreBElement = el("scoreB")
 
-const setAElement = document.getElementById("setA");
-const setBElement = document.getElementById("setB");
+const setAElement = el("setA")
+const setBElement = el("setB")
 
-const timerDisplay = document.getElementById("timerDisplay");
+const timerDisplay = el("timerDisplay")
 
-const startStopButton = document.getElementById("startStopButton");
-const resetButton = document.getElementById("resetButton");
+const startStopButton = el("startStopButton")
+const resetButton = el("resetButton")
+
+const serveIndicator = el("serveIndicator")
+
+const teamABlock = el("teamABlock")
+const teamBBlock = el("teamBBlock")
 
 
 /* ===============================
-   TIMER FUNCTIONS
+   TIMER
 ================================ */
 
 function updateTimer(){
 
-const minutes = Math.floor(timer / 60);
-const seconds = timer % 60;
+if(!timerDisplay) return
+
+const minutes = Math.floor(timer / 60)
+const seconds = timer % 60
 
 timerDisplay.textContent =
-String(minutes).padStart(2,'0') + ":" +
-String(seconds).padStart(2,'0');
+String(minutes).padStart(2,"0")+":"+
+String(seconds).padStart(2,"0")
 
 }
+
 
 if(startStopButton){
 
@@ -59,59 +137,62 @@ startStopButton.addEventListener("click",()=>{
 
 if(!running){
 
-interval = setInterval(()=>{
+interval=setInterval(()=>{
 
-timer++;
-updateTimer();
+timer++
+updateTimer()
 
-},1000);
+},1000)
 
-startStopButton.textContent = "Pause";
-running = true;
+running=true
+startStopButton.textContent="Pause"
 
 }else{
 
-clearInterval(interval);
-startStopButton.textContent = "Start";
-running = false;
+clearInterval(interval)
+running=false
+startStopButton.textContent="Start"
 
 }
 
-});
+})
 
 }
+
 
 if(resetButton){
 
 resetButton.addEventListener("click",()=>{
 
-clearInterval(interval);
+clearInterval(interval)
 
-timer = 0;
-running = false;
+timer=0
+running=false
 
-updateTimer();
+updateTimer()
 
-startStopButton.textContent="Start";
+startStopButton.textContent="Start"
 
-});
+})
 
 }
 
 
 /* ===============================
-   SCORE UPDATE
+   UPDATE UI
 ================================ */
 
 function updateScoreUI(){
 
-scoreAElement.textContent = scoreA;
-scoreBElement.textContent = scoreB;
+if(scoreAElement) scoreAElement.textContent=scoreA
+if(scoreBElement) scoreBElement.textContent=scoreB
 
-setAElement.textContent = setA;
-setBElement.textContent = setB;
+if(setAElement) setAElement.textContent=setA
+if(setBElement) setBElement.textContent=setB
 
-saveLiveScore();
+updateServeHighlight()
+
+saveLiveScore()
 
 }
 
@@ -122,39 +203,107 @@ saveLiveScore();
 
 function addPointA(){
 
-history.push({scoreA,scoreB});
+history.push({scoreA,scoreB,setA,setB})
 
-scoreA++;
+scoreA++
 
-updateScoreUI();
+checkSetWinner()
+
+updateScoreUI()
 
 }
 
 function addPointB(){
 
-history.push({scoreA,scoreB});
+history.push({scoreA,scoreB,setA,setB})
 
-scoreB++;
+scoreB++
 
-updateScoreUI();
+checkSetWinner()
+
+updateScoreUI()
 
 }
 
 
 /* ===============================
-   UNDO POINT
+   UNDO
 ================================ */
 
 function undoPoint(){
 
-if(history.length === 0) return;
+if(history.length===0) return
 
-const last = history.pop();
+const last=history.pop()
 
-scoreA = last.scoreA;
-scoreB = last.scoreB;
+scoreA=last.scoreA
+scoreB=last.scoreB
 
-updateScoreUI();
+setA=last.setA
+setB=last.setB
+
+updateScoreUI()
+
+}
+
+
+/* ===============================
+   SET WINNER
+================================ */
+
+function checkSetWinner(){
+
+const pointsToWin =
+parseInt(document.getElementById("pointsInput")?.value) || 25
+
+const totalSets =
+parseInt(document.getElementById("setsInput")?.value) || 3
+
+const setsNeeded = Math.ceil(totalSets / 2)
+
+/* TEAM A WINS SET */
+
+if(scoreA >= pointsToWin && scoreA - scoreB >= 2){
+
+setA++
+
+alert("Set won by " + document.getElementById("teamAName").textContent)
+
+scoreA = 0
+scoreB = 0
+
+}
+
+/* TEAM B WINS SET */
+
+if(scoreB >= pointsToWin && scoreB - scoreA >= 2){
+
+setB++
+
+alert("Set won by " + document.getElementById("teamBName").textContent)
+
+scoreA = 0
+scoreB = 0
+
+}
+
+/* CHECK MATCH WINNER */
+
+if(setA >= setsNeeded){
+
+alert("🏆 Match Won by " + document.getElementById("teamAName").textContent)
+
+resetMatch()
+
+}
+
+if(setB >= setsNeeded){
+
+alert("🏆 Match Won by " + document.getElementById("teamBName").textContent)
+
+resetMatch()
+
+}
 
 }
 
@@ -165,11 +314,57 @@ updateScoreUI();
 
 function toggleServe(){
 
-serve = serve === "Team A" ? "Team B" : "Team A";
+const teamAName=el("teamAName").textContent
+const teamBName=el("teamBName").textContent
 
-document.getElementById("serveIndicator").textContent = serve;
+serve = serve===teamAName ? teamBName : teamAName
 
-saveLiveScore();
+if(serveIndicator) serveIndicator.textContent=serve
+
+updateServeHighlight()
+
+saveLiveScore()
+
+}
+
+
+/* ===============================
+   SERVE HIGHLIGHT
+================================ */
+
+function updateServeHighlight(){
+
+if(!teamABlock||!teamBBlock) return
+
+teamABlock.classList.remove("serving")
+teamBBlock.classList.remove("serving")
+
+const teamAName=el("teamAName").textContent
+
+if(serve===teamAName){
+
+teamABlock.classList.add("serving")
+
+}else{
+
+teamBBlock.classList.add("serving")
+
+}
+
+}
+
+
+/* ===============================
+   SETTINGS PANEL
+================================ */
+
+function toggleSettings(){
+
+const panel = document.getElementById("settingsPanel")
+
+if(!panel) return
+
+panel.classList.toggle("collapsed")
 
 }
 
@@ -180,29 +375,30 @@ saveLiveScore();
 
 function startMatch(){
 
-const teamA =
-document.getElementById("teamAInput").value || "Team A";
+const teamA=el("teamAInput").value || "Team A"
+const teamB=el("teamBInput").value || "Team B"
 
-const teamB =
-document.getElementById("teamBInput").value || "Team B";
+el("teamAName").textContent=teamA
+el("teamBName").textContent=teamB
 
-document.getElementById("teamAName").textContent = teamA;
-document.getElementById("teamBName").textContent = teamB;
+serve=teamA
 
-serve = teamA;
+if(serveIndicator) serveIndicator.textContent=serve
 
-document.getElementById("serveIndicator").textContent = serve;
+scoreA=0
+scoreB=0
+setA=0
+setB=0
+timer=0
 
-scoreA = 0;
-scoreB = 0;
-setA = 0;
-setB = 0;
+updateTimer()
+updateScoreUI()
 
-updateScoreUI();
+const panel=el("settingsPanel")
 
-document.getElementById("settingsPanel").style.display="none";
+if(panel) panel.classList.add("collapsed")
 
-saveLiveScore();
+saveLiveScore()
 
 }
 
@@ -213,67 +409,94 @@ saveLiveScore();
 
 function resetMatch(){
 
-scoreA = 0;
-scoreB = 0;
+scoreA = 0
+scoreB = 0
 
-setA = 0;
-setB = 0;
+setA = 0
+setB = 0
 
-serve = "Team A";
+timer = 0
 
-timer = 0;
+clearInterval(interval)
 
-clearInterval(interval);
+running = false
 
-running=false;
+/* reset serve */
 
-updateTimer();
+serve = "Team A"
 
-updateScoreUI();
+if(serveIndicator){
+serveIndicator.textContent = "Serve → Team A"
+}
 
-document.getElementById("serveIndicator").textContent = serve;
+/* reset team names */
 
-document.getElementById("settingsPanel").style.display="block";
+const teamAName = document.getElementById("teamAName")
+const teamBName = document.getElementById("teamBName")
+
+if(teamAName) teamAName.textContent = "Team A"
+if(teamBName) teamBName.textContent = "Team B"
+
+/* reset timer */
+
+updateTimer()
+
+/* reset UI */
+
+updateScoreUI()
+
+/* OPEN settings panel again */
+
+const panel = document.getElementById("settingsPanel")
+
+if(panel){
+
+panel.classList.remove("collapsed")
+
+}
+
+/* scroll panel into view */
+
+panel?.scrollIntoView({behavior:"smooth"})
 
 }
 
 
 /* ===============================
-   LIVE SCREEN DATA SAVE
+   LIVE SCREEN DATA
 ================================ */
 
 function saveLiveScore(){
 
-const data = {
+if(!el("teamAName")) return
 
-teamA: document.getElementById("teamAName").textContent,
-teamB: document.getElementById("teamBName").textContent,
+const data={
 
-scoreA: scoreA,
-scoreB: scoreB,
+teamA:el("teamAName").textContent,
+teamB:el("teamBName").textContent,
 
-setA: setA,
-setB: setB,
+scoreA,
+scoreB,
 
-serve: serve
+setA,
+setB,
 
-};
+serve
 
-localStorage.setItem(
-"volleyLiveScore",
-JSON.stringify(data)
-);
+}
+
+localStorage.setItem("volleyLiveScore",JSON.stringify(data))
 
 }
 
 
 /* ===============================
-   OPEN LIVE TV SCREEN
+   OPEN LIVE SCREEN
 ================================ */
 
 function openLive(){
 
-window.open("live.html","_blank");
+window.open("live.html","_blank")
 
 }
 
@@ -282,5 +505,6 @@ window.open("live.html","_blank");
    INITIAL LOAD
 ================================ */
 
-updateTimer();
-updateScoreUI();
+updateTimer()
+updateScoreUI()
+updateServeHighlight()

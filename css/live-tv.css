@@ -1,6 +1,8 @@
-/* ===============================
-   BODY BACKGROUND
-================================ */
+/* ====================================
+   VOLLEYHUB LIVE TV OVERLAY STYLE
+==================================== */
+
+/* BODY BACKGROUND */
 
 body{
 
@@ -26,9 +28,8 @@ height:100vh;
 
 }
 
-/* ===============================
-   LIVE SCOREBOARD
-================================ */
+
+/* MAIN SCOREBOARD */
 
 .live-scoreboard{
 
@@ -41,9 +42,8 @@ max-width:1400px;
 
 }
 
-/* ===============================
-   TEAM BLOCK
-================================ */
+
+/* TEAM BLOCK */
 
 .team{
 
@@ -52,6 +52,7 @@ width:35%;
 
 }
 
+
 /* TEAM NAME */
 
 .team h1{
@@ -59,27 +60,37 @@ width:35%;
 font-size:60px;
 margin-bottom:20px;
 
+text-shadow:
+0 0 8px rgba(255,255,255,0.6);
+
 }
+
 
 /* SCORE */
 
 .score{
 
 font-size:180px;
-color:#00ff88;
 font-weight:bold;
 
+color:#00ff88;
+
+text-shadow:
+0 0 15px #00ff88,
+0 0 30px #00ff88,
+0 0 60px #00ff88;
+
+transition:all 0.25s ease;
+
 }
 
-/* ===============================
-   CENTER PANEL
-================================ */
+
+/* CENTER PANEL */
 
 .center{
-
 text-align:center;
-
 }
+
 
 /* SET SCORE */
 
@@ -88,17 +99,184 @@ text-align:center;
 font-size:40px;
 margin-bottom:25px;
 
+color:#00ff88;
+
+text-shadow:
+0 0 10px #00ff88;
+
 }
+
 
 /* SERVE INDICATOR */
 
 .serve{
 
 font-size:28px;
-background:#2563eb;
+
+background:linear-gradient(45deg,#2563eb,#3b82f6);
+
 padding:12px 25px;
-border-radius:8px;
+
+border-radius:10px;
 
 display:inline-block;
+
+box-shadow:
+0 0 12px #3b82f6,
+0 0 30px #3b82f6;
+
+}
+
+
+/* ====================================
+   TV SCOREBOARD OVERLAY
+==================================== */
+
+.tv-scoreboard{
+
+position:absolute;
+
+bottom:40px;
+left:50%;
+
+transform:translateX(-50%);
+
+background:rgba(0,0,0,0.75);
+
+backdrop-filter:blur(10px);
+
+padding:18px 35px;
+
+border-radius:12px;
+
+font-size:28px;
+
+box-shadow:
+0 0 25px rgba(0,0,0,0.8);
+
+}
+
+
+/* TEAM ROW */
+
+.team-row{
+
+display:flex;
+
+justify-content:space-between;
+
+gap:60px;
+
+margin:6px 0;
+
+font-size:30px;
+
+}
+
+
+/* SET DISPLAY */
+
+.tv-scoreboard .sets{
+
+font-weight:bold;
+
+color:#00ff88;
+
+text-shadow:
+0 0 10px #00ff88;
+
+}
+
+
+/* SERVE INDICATOR TV */
+
+.serve-tv{
+
+text-align:center;
+
+margin-top:10px;
+
+font-size:22px;
+
+color:#3b82f6;
+
+text-shadow:
+0 0 10px #3b82f6;
+
+}
+
+
+/* SCORE FLASH ANIMATION */
+
+@keyframes scoreFlash{
+
+0%{transform:scale(1)}
+
+50%{
+transform:scale(1.25);
+color:#00ff88;
+}
+
+100%{transform:scale(1)}
+
+}
+
+.score-flash{
+
+animation:scoreFlash 0.35s ease;
+
+}
+@keyframes servePulse{
+
+0%{
+box-shadow:
+0 0 10px #3b82f6,
+0 0 20px #3b82f6;
+}
+
+50%{
+box-shadow:
+0 0 20px #3b82f6,
+0 0 40px #3b82f6,
+0 0 60px #3b82f6;
+}
+
+100%{
+box-shadow:
+0 0 10px #3b82f6,
+0 0 20px #3b82f6;
+}
+
+}
+
+.serve{
+animation:servePulse 2s infinite;
+}
+
+.set-winner-flash{
+
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:white;
+
+opacity:0;
+
+pointer-events:none;
+
+}
+
+.flash-active{
+animation:setFlash .6s ease;
+}
+
+@keyframes setFlash{
+
+0%{opacity:.8}
+100%{opacity:0}
 
 }

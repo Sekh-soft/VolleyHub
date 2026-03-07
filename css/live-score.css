@@ -1,170 +1,526 @@
-/* ===============================
-   PAGE BACKGROUND
-================================ */
+/* ====================================
+   VOLLEYHUB LIVE SCOREBOARD STYLE
+==================================== */
+
+/* BODY */
 
 body{
 margin:0;
-padding:0;
+font-family:Arial, Helvetica, sans-serif;
 
 background:
-linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
 url("../assets/images/live-score.png");
 
 background-size:cover;
 background-position:center;
 
-font-family:Arial, Helvetica, sans-serif;
 color:white;
-
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
 
 height:100vh;
-}
-
-
-/* ===============================
-   SETTINGS PANEL
-================================ */
-
-.settings{
-
-position:absolute;
-top:40px;
-left:40px;
-
-background:rgba(0,0,0,0.6);
-padding:20px;
-border-radius:10px;
-
 display:flex;
-flex-direction:column;
-gap:10px;
-
-width:320px;
-
-}
-
-.settings input{
-padding:6px;
-border:none;
-border-radius:4px;
-}
-
-.settings button{
-padding:8px;
-background:#22c55e;
-border:none;
-color:white;
-cursor:pointer;
-border-radius:5px;
+justify-content:center;
+align-items:center;
 }
 
 
-/* ===============================
-   SCOREBOARD
-================================ */
+/* MAIN APP */
+
+.app{
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+
+/* SCOREBOARD */
 
 .scoreboard{
-
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:25px;
-
+text-align:center;
 }
 
 
-/* ===============================
-   TEAM BLOCKS
-================================ */
+/* TEAMS */
 
 .teams{
-
 display:flex;
-gap:120px;
-
+gap:150px;
+justify-content:center;
+align-items:center;
 }
 
 .team-block{
-text-align:center;
+padding:20px;
+border-radius:12px;
+transition:all 0.3s ease;
 }
 
 .team-block h2{
 font-size:40px;
-margin:10px 0;
+margin-bottom:10px;
 }
 
 .team-block h1{
-font-size:120px;
+
+font-size:130px;
 margin:0;
+
 color:#00ff88;
+
+text-shadow:
+0 0 10px #00ff88,
+0 0 25px #00ff88,
+0 0 50px #00ff88;
+
 }
 
 
-/* ===============================
-   MATCH INFO
+/* ================================
+   SERVING TEAM HIGHLIGHT
 ================================ */
 
+.team-block.serving{
+
+background:rgba(255,255,255,0.08);
+
+border:3px solid #00ff88;
+
+box-shadow:
+0 0 15px #00ff88,
+0 0 40px #00ff88;
+
+transform:scale(1.05);
+
+}
+
+
+/* MATCH INFO */
+
 .match-info{
-
-text-align:center;
-
+margin-top:20px;
 }
 
 .sets{
-font-size:45px;
-margin-bottom:20px;
+font-size:35px;
 }
 
-.serve{
 
-font-size:30px;
-background:#2563eb;
+/* SERVE INDICATOR */
 
-padding:15px 40px;
-border-radius:8px;
+.serve-indicator{
+
+margin-top:15px;
+font-size:26px;
+
+background:linear-gradient(45deg,#2563eb,#3b82f6);
+
+padding:12px 35px;
+
+border-radius:10px;
+
+box-shadow:
+0 0 10px #2563eb,
+0 0 25px #2563eb;
 
 display:inline-block;
 
 }
 
 
-/* ===============================
-   TIMER
-================================ */
+/* TIMER */
 
 .timer{
-text-align:center;
+margin-top:20px;
 }
 
 #timerDisplay{
-font-size:30px;
-display:block;
-margin-bottom:10px;
+
+font-size:34px;
+
+letter-spacing:2px;
+
 }
+
+
+/* BUTTON BASE */
+
+button{
+
+padding:8px 16px;
+
+border:none;
+border-radius:6px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+transition:all 0.25s ease;
+
+}
+
+
+/* SHINY BUTTON STYLE */
+
+button{
+
+background:linear-gradient(45deg,#1e3a8a,#2563eb);
+
+color:white;
+
+box-shadow:
+0 0 10px rgba(37,99,235,0.7);
+
+}
+
+
+/* HOVER EFFECT */
+
+button:hover{
+
+transform:translateY(-2px);
+
+box-shadow:
+0 0 10px #3b82f6,
+0 0 25px #3b82f6;
+
+}
+
+
+/* TIMER BUTTONS */
 
 .timer-buttons button{
-padding:6px 12px;
-margin:2px;
+margin:5px;
 }
 
 
-/* ===============================
-   CONTROLS
-================================ */
+/* MATCH CONTROLS */
 
 .match-controls{
-
 margin-top:20px;
-
 }
 
 .match-controls button{
+margin:4px;
+}
 
-padding:6px 10px;
-margin:3px;
+
+/* SPECIAL BUTTON COLORS */
+
+.start-btn{
+
+background:linear-gradient(45deg,#16a34a,#22c55e);
+
+box-shadow:
+0 0 12px #22c55e;
+
+width:100%;
+}
+
+.start-btn:hover{
+
+box-shadow:
+0 0 15px #22c55e,
+0 0 35px #22c55e;
+
+}
+
+
+.reset-btn{
+
+background:linear-gradient(45deg,#dc2626,#ef4444);
+
+box-shadow:
+0 0 10px #ef4444;
+
+}
+
+
+/* SETTINGS WRAPPER */
+
+.settings-wrapper{
+
+position:fixed;
+
+top:30px;
+left:0;
+
+z-index:1000;
+
+}
+
+
+/* GEAR BUTTON */
+
+.gear-button{
+
+position:absolute;
+
+top:10px;
+left:10px;
+
+width:45px;
+height:45px;
+
+font-size:22px;
+
+border:none;
+border-radius:50%;
+
+background:#111;
+
+color:white;
+
+cursor:pointer;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+box-shadow:
+0 0 10px rgba(255,255,255,0.3);
+
+transition:all 0.3s ease;
+
+}
+
+.gear-button:hover{
+
+transform:rotate(90deg) scale(1.1);
+
+box-shadow:
+0 0 10px white,
+0 0 25px white;
+
+}
+
+
+/* SETTINGS PANEL */
+
+.settings-panel{
+
+width:260px;
+
+background:rgba(0,0,0,0.75);
+
+backdrop-filter:blur(12px);
+
+padding:20px;
+
+border-radius:0 12px 12px 0;
+
+box-shadow:0 10px 30px rgba(0,0,0,0.7);
+
+transform:translateX(0);
+
+transition:transform 0.35s ease;
+
+}
+
+
+/* HIDDEN PANEL */
+
+.settings-panel.closed{
+transform:translateX(-240px);
+}
+
+
+/* SETTINGS INPUT */
+
+.settings-panel input{
+
+width:100%;
+
+margin:6px 0;
+
+padding:8px;
+
+border:none;
+border-radius:6px;
+
+background:#1e1e1e;
+
+color:white;
+
+}
+
+
+/* SCORE FLASH ANIMATION */
+
+@keyframes scoreFlash{
+
+0%{
+transform:scale(1);
+}
+
+40%{
+transform:scale(1.35);
+color:#00ff88;
+text-shadow:
+0 0 20px #00ff88,
+0 0 40px #00ff88,
+0 0 80px #00ff88;
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+.score-flash{
+animation:scoreFlash .35s ease;
+}
+
+@keyframes servePulse{
+
+0%{
+box-shadow:
+0 0 10px #3b82f6,
+0 0 20px #3b82f6;
+}
+
+50%{
+box-shadow:
+0 0 20px #3b82f6,
+0 0 40px #3b82f6,
+0 0 60px #3b82f6;
+}
+
+100%{
+box-shadow:
+0 0 10px #3b82f6,
+0 0 20px #3b82f6;
+}
+
+}
+
+.serve{
+animation:servePulse 2s infinite;
+}
+
+/* SETTINGS WRAPPER */
+
+.settings-wrapper{
+position:fixed;
+top:30px;
+left:20px;
+z-index:1000;
+}
+
+/* GEAR BUTTON */
+
+.gear-button{
+
+width:45px;
+height:45px;
+
+border-radius:50%;
+
+background:#1e3a8a;
+color:white;
+
+font-size:22px;
+border:none;
+
+cursor:pointer;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+box-shadow:0 0 15px rgba(37,99,235,.6);
+
+transition:.3s;
+
+}
+
+.gear-button:hover{
+
+transform:rotate(90deg) scale(1.1);
+
+}
+
+/* SETTINGS PANEL */
+
+.settings-panel{
+
+width:260px;
+
+background:rgba(0,0,0,.85);
+
+padding:20px;
+
+border-radius:12px;
+
+position:absolute;
+top:60px;
+left:0;
+
+transition:.35s;
+
+}
+
+/* CLOSED STATE */
+
+.settings-panel.collapsed{
+
+transform:translateX(-300px);
+opacity:0;
+
+}
+
+/* CLOSE BUTTON */
+
+.close-settings{
+
+position:absolute;
+top:10px;
+right:10px;
+
+background:#2563eb;
+color:white;
+
+border:none;
+border-radius:6px;
+
+width:28px;
+height:28px;
+
+cursor:pointer;
+
+}
+
+/* INPUT STYLE */
+
+.settings-panel input{
+
+width:100%;
+padding:8px;
+
+margin:6px 0;
+
+border-radius:6px;
+border:none;
+
+background:#1e1e1e;
+color:white;
+
+}
+
+/* SCOREBOARD CENTER FIX */
+
+.scoreboard{
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+text-align:center;
 
 }

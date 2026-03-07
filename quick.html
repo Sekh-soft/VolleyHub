@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,10 +14,19 @@
 
 <body>
 
-<!-- MATCH SETTINGS -->
-<div class="settings" id="settingsPanel">
+<div class="app">
 
-<h2>Match Settings</h2>
+<!-- SETTINGS WRAPPER -->
+
+<div class="settings-wrapper">
+
+<button class="gear-button" onclick="toggleSettings()">⚙</button>
+
+<div class="settings-panel collapsed" id="settingsPanel">
+
+<button class="close-settings" onclick="toggleSettings()">✕</button>
+
+<h3>Match Settings</h3>
 
 <input id="teamAInput" placeholder="Team A Name">
 <input id="teamBInput" placeholder="Team B Name">
@@ -31,18 +41,21 @@
 
 </div>
 
+</div>
 
-<!-- SCOREBOARD -->
+</div>
+
+
 <div class="scoreboard">
 
 <div class="teams">
 
-<div class="team-block">
+<div class="team-block" id="teamABlock">
 <h2 id="teamAName">Team A</h2>
 <h1 id="scoreA">0</h1>
 </div>
 
-<div class="team-block">
+<div class="team-block" id="teamBBlock">
 <h2 id="teamBName">Team B</h2>
 <h1 id="scoreB">0</h1>
 </div>
@@ -50,55 +63,50 @@
 </div>
 
 
-<!-- MATCH INFO -->
 <div class="match-info">
 
 <div class="sets">
-Sets :
+SETS
 <span id="setA">0</span> -
 <span id="setB">0</span>
 </div>
 
-<div class="serve">
-Serve :
-<span id="serveIndicator">Team A</span>
+<div class="serve-indicator">
+Serve → <span id="serveIndicator">Team A</span>
 </div>
 
 </div>
 
 
-<!-- TIMER -->
 <div class="timer">
 
 <span id="timerDisplay">00:00</span>
 
 <div class="timer-buttons">
-<button id="startStopButton">Start</button>
+<button id="startStopButton" onclick="toggleTimer()">Start</button>
 <button id="resetButton">Reset</button>
 </div>
 
 </div>
 
 
-<!-- CONTROLS -->
 <div class="match-controls">
 
 <button onclick="addPointA()">+ Team A</button>
 <button onclick="addPointB()">+ Team B</button>
 
-<button onclick="undoPoint()">Undo</button>
-
 <button onclick="toggleServe()">Toggle Serve</button>
 
 <button onclick="resetMatch()">Reset Match</button>
-
 <button onclick="openLive()">Live Screen</button>
 
 </div>
 
 </div>
 
-<script src="js/main.js"></script>
+</div>
+
+<script src="js/main.js" defer></script>
 
 </body>
 </html>

@@ -1,58 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VolleyWolley</title>
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="manifest" href="manifest.json">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VolleyWolley</title>
+
+<link rel="stylesheet" href="css/home.css">
+
+<link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#22c55e">
+
 </head>
+
+
+<body>
+
+<!-- PARTICLE BACKGROUND -->
+<canvas id="particles"></canvas>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="nav-left">
+<img src="assets/images/logo.png" class="nav-logo">
+<span class="brand">VolleyWolley</span>
+</div>
+
+<div class="nav-right">
+<a href="#" class="btn-nav login">Login</a>
+<a href="#" class="btn-nav register">Register</a>
+<a href="tournament.html" class="btn-nav host">Host</a>
+<a href="baddiehub.html" class="btn-nav baddie">BaddieHub</a>
+</div>
+
+</nav>
+
+
+<!-- LIVE TICKER -->
+
+<div class="ticker">
+
+<div class="ticker-content">
+
+🏐 LIVE: Alpha 21 - 19 Beta  
+|  
+🏐 LIVE: Smashers 18 - 17 Falcons  
+|  
+🏐 Upcoming: Tigers vs Warriors
+
+</div>
+
+</div>
+
+
+<!-- HERO -->
+
+<header class="hero">
+<div class="hero-bg"></div>
+
+<div class="hero-card">
+
+<h1 class="hero-title">
+Volley<span>Wolley</span>
+</h1>
+
+<p class="hero-sub">
+Professional volleyball tournament platform with real-time scoring.
+</p>
+
+<div class="hero-buttons">
+
+<a href="tournament.html" class="btn-primary">
+🏆 Host Tournament
+</a>
+
+<a href="quick.html" class="btn-secondary">
+📊 Live Score
+</a>
+
+<button id="installBtn" class="btn-install">
+📲 Install App
+</button>
+
+</div>
+
+</div>
+
+<div class="volleyball"></div>
+
+</header>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+<div class="stat">
+<h2>24+</h2>
+<p>Tournaments</p>
+</div>
+
+<div class="stat">
+<h2>300+</h2>
+<p>Players</p>
+</div>
+
+<div class="stat">
+<h2>140+</h2>
+<p>Matches</p>
+</div>
+
+<div class="stat">
+<h2>10K+</h2>
+<p>Score Updates</p>
+</div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section class="features">
+
+<div class="feature">
+<h3>🏆 Tournament Hosting</h3>
+<p>Create and manage volleyball tournaments easily.</p>
+</div>
+
+<div class="feature">
+<h3>⚡ Live Scoring</h3>
+<p>Update match scores in real time.</p>
+</div>
+
+<div class="feature">
+<h3>📱 Install App</h3>
+<p>Use VolleyWolley as a mobile app.</p>
+</div>
+
+</section>
+
+
+<footer class="footer">
+
+<p>© 2025 VolleyWolley</p>
+
+</footer>
+
+
+
+<!-- MAIN SCRIPT -->
+
+<script src="js/main.js"></script>
+
+
+<!-- SERVICE WORKER -->
+
 <script>
 
-if("serviceWorker" in navigator){
+if ("serviceWorker" in navigator) {
+
+window.addEventListener("load", () => {
 
 navigator.serviceWorker.register("service-worker.js")
-.then(()=>console.log("Service Worker Registered"))
+
+})
 
 }
 
 </script>
-<body>
 
-<!-- ================= NAVBAR ================= -->
-<nav class="navbar">
-    <div class="nav-left">
-        <!-- LOGO -->
-        <img src="assets/images/logo.png" class="nav-logo" alt="VolleyWolley Logo">
-        
-    </div>
-    <div class="nav-right">
-        <a href="#" class="btn-nav login">Login</a>
-        <a href="#" class="btn-nav register">Register</a>
-        <a href="https://baddiehub.com" class="btn-nav baddie">BaddieHub</a>
-    </div>
-</nav>
-
-<!-- ================= HERO ================= -->
-<header class="hero">
-    <!-- Background Layers -->
-    <div class="hero-bg"></div>
-    <div class="hero-light"></div>
-    <div class="particles"></div>
-    <div class="mouse-glow"></div>
-
-    <div class="hero-content">
-        <h1 class="hero-title">Volley<span>Wolley</span></h1>
-        <p class="hero-sub">Volleyball tournament platform with real-time scoring.</p>
-
-        <div class="hero-buttons">
-            <a href="tournament.html" class="btn-primary">Host Tournament</a>
-            <a href="quick.html" class="btn-secondary">Live Score</a>
-        </div>
-    </div>
-</header>
-
-<script src="js/main.js"></script> <!-- Main JS for homepage interactions -->
 </body>
 </html>

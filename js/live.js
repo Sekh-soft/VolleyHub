@@ -1,96 +1,257 @@
-import { database } from './firebase.js';
+/* ====================================
+   VOLLEYHUB LIVE CONTROL SCRIPT
+==================================== */
+
+import { database } from "./firebase.js";
+
+/* ===============================
+   MATCH STATE
+================================ */
 
 let scoreA = 0;
 let scoreB = 0;
-let teamAName = "";
-let teamBName = "";
+
+let setA = 0;
+let setB = 0;
+
+let serve = "Team A";
+
+let teamAName = "Team A";
+let teamBName = "Team B";
+
 let matchId = null;
 
-// Start Match
-function startMatch() {
 
-  teamAName = document.getElementById('teamAName').value || "Team A";
-  teamBName = document.getElementById('teamBName').value || "Team B";
+/* ===============================
+   DOM ELEMENTS
+================================ */
 
-  matchId = "match_" + Date.now();
+const scoreAElement = document.getElementById("scoreA");
+const scoreBElement = document.getElementById("scoreB");
 
-  updateUI();
-  saveScore();
+const teamAElement = document.getElementById("teamAName");
+const teamBElement = document.getElementById("teamBName");
+
+
+/* ===============================
+   START MATCH
+================================ */
+
+function startMatch(){
+
+const teamAInput =
+document.getElementById("teamAInput")?.value;
+
+const teamBInput =
+document.getElementById("teamBInput")?.value;
+
+teamAName = teamAInput || "Team A";
+teamBName = teamBInput || "Team B";
+
+matchId = "match_" + Date.now();
+
+scoreA = 0;
+scoreB = 0;
+
+updateUI();
+saveScore();
+
 }
 
-// Add Point
+
+/* ===============================
+   ADD POINT
+================================ */
+
 function addPoint(team){
 
-  if(team === "A") scoreA++;
-  if(team === "B") scoreB++;
+if(team === "A") scoreA++;
+if(team === "B") scoreB++;
 
-  updateUI();
-  saveScore();
+updateUI();
+saveScore();
+
 }
 
-// Decrease Point
+
+/* ===============================
+   REMOVE POINT
+================================ */
+
 function removePoint(team){
 
-  if(team === "A" && scoreA > 0) scoreA--;
-  if(team === "B" && scoreB > 0) scoreB--;
+if(team === "A" && scoreA > 0) scoreA--;
+if(team === "B" && scoreB > 0) scoreB--;
 
-  updateUI();
-  saveScore();
+updateUI();
+saveScore();
+
 }
 
-// Update HTML
+
+/* ===============================
+   UPDATE UI
+================================ */
+
 function updateUI(){
 
-  document.getElementById("scoreA").textContent = scoreA;
-  document.getElementById("scoreB").textContent = scoreB;
+if(scoreAElement) scoreAElement.textContent = scoreA;
+if(scoreBElement) scoreBElement.textContent = scoreB;
 
-  document.getElementById("teamAName").textContent = teamAName;
-  document.getElementById("teamBName").textContent = teamBName;
+if(teamAElement) teamAElement.textContent = teamAName;
+if(teamBElement) teamBElement.textContent = teamBName;
 
 }
 
-// Save to Firebase
+
+/* ===============================
+   SAVE SCORE
+================================ */
+
 function saveScore(){
 
-  const data = {
-    teamA: teamAName,
-    teamB: teamBName,
-    scoreA: scoreA,
-    scoreB: scoreB,
-    timestamp: new Date().toISOString()
-  };
+const data = {
 
-  if(matchId){
-    database.ref("matches/" + matchId).set(data);
-  }
+teamA: teamAName,
+teamB: teamBName,
 
-  // Save locally
-  localStorage.setItem("volleyLiveScore", JSON.stringify(data));
+scoreA: scoreA,
+scoreB: scoreB,
+
+setA: setA,
+setB: setB,
+
+serve: serve,
+
+timestamp: new Date().toISOString()
+
+};
+
+
+/* FIREBASE SAVE */
+
+if(matchId && database){
+
+try{
+
+database
+.ref("matches/" + matchId)
+.set(data);
+
+}catch(e){
+
+console.warn("Firebase save failed");
+
 }
 
-// Load Live Score
+}
+
+
+/* LOCAL SAVE */
+
+localStorage.setItem(
+"volleyLiveScore",
+JSON.stringify(data)
+);
+
+}
+
+
+/* ===============================
+   LOAD LIVE SCORE
+================================ */
+
 function loadLiveScore(){
 
-  const data = JSON.parse(localStorage.getItem("volleyLiveScore"));
+const data =
+JSON.parse(localStorage.getItem("volleyLiveScore"));
 
-  if(!data) return;
+if(!data) return;
 
-  document.getElementById("teamAName").textContent = data.teamA;
-  document.getElementById("teamBName").textContent = data.teamB;
+teamAName = data.teamA;
+teamBName = data.teamB;
 
-  document.getElementById("scoreA").textContent = data.scoreA;
-  document.getElementById("scoreB").textContent = data.scoreB;
+scoreA = data.scoreA;
+scoreB = data.scoreB;
+
+setA = data.setA || 0;
+setB = data.setB || 0;
+
+serve = data.serve || "Team A";
+
+updateUI();
 
 }
 
-// Button Events
-document.getElementById("incrementA").addEventListener("click", ()=>addPoint("A"));
-document.getElementById("incrementB").addEventListener("click", ()=>addPoint("B"));
 
-document.getElementById("decrementA").addEventListener("click", ()=>removePoint("A"));
-document.getElementById("decrementB").addEventListener("click", ()=>removePoint("B"));
+/* ===============================
+   BUTTON EVENTS
+================================ */
 
-document.getElementById("startMatch").addEventListener("click", startMatch);
+document
+.getElementById("incrementA")
+?.addEventListener("click",()=>addPoint("A"));
 
-// Auto refresh
-setInterval(loadLiveScore, 500);
+document
+.getElementById("incrementB")
+?.addEventListener("click",()=>addPoint("B"));
+
+document
+.getElementById("decrementA")
+?.addEventListener("click",()=>removePoint("A"));
+
+document
+.getElementById("decrementB")
+?.addEventListener("click",()=>removePoint("B"));
+
+document
+.getElementById("startMatch")
+?.addEventListener("click",startMatch);
+
+
+/* ===============================
+   LIVE AUTO REFRESH
+================================ */
+
+setInterval(loadLiveScore,1000);
+
+
+/* ===============================
+   INITIAL LOAD
+================================ */
+
+loadLiveScore();
+
+let lastScoreA = 0;
+let lastScoreB = 0;
+
+function animateScore(id){
+
+const el = document.getElementById(id);
+
+el.classList.add("score-flash");
+
+setTimeout(()=>{
+el.classList.remove("score-flash");
+},350);
+
+}
+
+function loadLiveScore(){
+
+const data = JSON.parse(localStorage.getItem("volleyLiveScore"));
+
+if(!data) return;
+
+if(data.scoreA !== lastScoreA){
+animateScore("scoreA");
+}
+
+if(data.scoreB !== lastScoreB){
+animateScore("scoreB");
+}
+
+lastScoreA = data.scoreA;
+lastScoreB = data.scoreB;
+
+}
