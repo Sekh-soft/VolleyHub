@@ -1,0 +1,114 @@
+* [33m5497035[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Your commit message here
+*   [33m6576067[m Merge branch 'main' of https://github.com/Sekh-soft/VolleyHub
+[32m|[m[33m\[m  
+[32m|[m * [33m941389b[m Rename style.css to home.css
+[32m|[m * [33ma0f6375[m Update and rename quick.js to live.js
+[32m|[m * [33mc2bd7bf[m Update and rename app.js to firebase.js
+[32m|[m * [33me9d3ca5[m Update app.js
+* [33m|[m [33m671d14c[m Update quick.html
+[33m|[m[33m/[m  
+* [33m2108f30[m Updated
+* [33me88af88[m Add files via upload
+* [33m40dee68[m Delete images/hero-bg.png.png
+* [33m54e3f1c[m Update style.css
+* [33m05311b4[m Update style.css
+* [33m7568f02[m Update style.css
+* [33m1d68e68[m Add files via upload
+* [33mf0ba5e4[m Delete images/hero-bg.png
+* [33m5530ce0[m Add hero background image
+* [33mddf0210[m Update style.css
+* [33mb5403b0[m Update style.css
+* [33m4e63be0[m Refactor CSS for improved styling and organization
+* [33m308b13f[m Update index.html
+* [33m5725969[m Update main.js
+* [33mc8391f7[m Update style.css
+* [33m6f36054[m Update index.html
+* [33me78395e[m Refactor mouse glow effect initialization
+* [33mfd278cb[m Update style.css
+* [33m995ec5c[m Refactor navbar and hero section in index.html
+* [33m113cdfd[m Update style.css
+* [33m9da7287[m Refactor CSS for background and button styles
+* [33mb1977b6[m Update main.js
+* [33m6c36bd4[m Improve mouse glow effect with error handling
+* [33md48e43b[m Update style.css
+* [33m7eb7dbf[m Update index.html
+* [33md50c0bc[m Refactor index.html to update navbar and remove live section
+* [33m7adfc3c[m Fix duplicate mousemove event listener
+* [33mba7d3ad[m Update style.css
+* [33me2c4b21[m Rename hero-bg.png.png to hero-bg.png
+* [33m3bef0ba[m Add mouse glow effect to main.js
+* [33m4c3033a[m Update index.html
+* [33m7a8f89c[m Refactor CSS styles for improved readability
+* [33mcd40b89[m Update index.html
+* [33mf6e9326[m Refactor CSS for navbar and hero section
+* [33m892399e[m Update index.html
+* [33m98b19bf[m Refactor CSS styles and improve navbar design
+* [33m1e45fe9[m Refactor index.html for VolleyHub layout and content
+* [33m601f3a0[m Fix logo image source in index.html
+* [33mf546de3[m Add files via upload
+* [33mb0ca712[m Refactor CSS for hero section and navbar styles
+* [33m92afa5f[m Refactor navbar and update title in index.html
+* [33m1b9835a[m Fix logo image source in index.html
+* [33mfc283cb[m Delete images/logo.png.png
+* [33mfe32e3f[m Add files via upload
+* [33m590623a[m Fix logo image tag in index.html
+* [33m88c2edf[m Update style.css
+* [33m36595a4[m Refactor glass button styles and add navbar styles
+* [33m85b585d[m Refactor navbar and add hero content
+* [33m765b143[m Refactor CSS for hero section and buttons
+* [33md805162[m Refactor HTML structure and update header section
+* [33ma658e29[m Refactor button styles for improved design
+* [33m8f443bd[m Fix HTML structure for hero buttons
+* [33m98af8e8[m Fix logo image source in index.html
+* [33mac2cb62[m Refactor hero section structure in index.html
+* [33maaa1cad[m Update style.css
+* [33md47f655[m Add styles for hero section layout and animations
+* [33mf11b67f[m Refactor hero section with new wrapper and layout
+* [33m9c2d9d4[m Refactor CSS styles for hero section and layout
+* [33md004818[m Update hero section comments in index.html
+* [33m36b167e[m Enhance index.html with comments and alt text
+* [33m26519d8[m Update style.css
+* [33md7bc1c5[m Update index.html
+* [33m61921de[m Add files via upload
+* [33mfe36986[m Update index.html
+* [33m569b2d1[m Update style.css
+* [33ma2fa6e1[m Update index.html
+* [33m3c9b207[m Update style.css
+* [33m1d286d6[m Update index.html
+* [33m0a50154[m Update style.css
+* [33m244e8ff[m Update index.html
+* [33m16e0e25[m Update style.css
+* [33md3b458e[m Add files via upload
+* [33m6bacfbc[m Update style.css
+* [33madc7895[m Update index.html
+* [33mc399ec3[m Update style.css
+* [33m5218175[m Update index.html
+* [33m3f15b99[m Update style.css
+* [33m5e0a9bd[m Update index.html
+* [33m31a1a98[m Update index.html
+* [33mbb2785d[m Rename style.css to css/style.css
+* [33me8a56e6[m Update style.css
+* [33m63b178e[m Update index.html
+* [33m99f4108[m Update style.css
+* [33m03b500f[m Delete Images
+* [33m9d670f6[m Rename hero-bg.png.png to images/hero-bg.png.png
+* [33m1c34642[m Add files via upload
+* [33m48a3c79[m Create Images
+* [33m3b291e5[m Delete images/hero-bg.png
+* [33mf2c31d2[m Create hero-bg.png
+* [33m3755df7[m Delete Images
+* [33m9b065a2[m Create Images
+* [33m40cf37f[m Update style.css
+* [33m3801472[m Update index.html
+* [33me578e93[m Update style.css
+* [33m40db4d8[m Update index.html
+* [33m4e24d37[m Update index.html
+* [33mf0b92f1[m Update style.css
+* [33m8e9b77a[m Update style.css
+* [33m1cb9dd1[m Update index.html
+* [33mc52441c[m Update style.css
+* [33m064696f[m Update style.css
+* [33m6f0285e[m Update index.html
+* [33m4096359[m Update style.css
+* [33m19c53b3[m Update index.html
+* [33m4c439a0[m Add files via upload

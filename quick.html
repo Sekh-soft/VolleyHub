@@ -1,66 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Score - VolleyWolley</title>
-    <link rel="stylesheet" href="css/live-score.css"> <!-- Link to CSS for live score page -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Live Score - VolleyHub</title>
+
+<link rel="stylesheet" href="css/live-score.css">
+
 </head>
+
 <body>
 
-<!-- ==================== SETTINGS PANEL ==================== -->
-<div class="settings">
-    <h2>Match Settings</h2>
-    <label for="sets">Number of Sets:</label>
-    <input type="number" id="sets" min="1" max="7" value="3">
-    <br>
-    <label for="playerA">Player A Name:</label>
-    <input type="text" id="playerA" placeholder="Enter Team A Player Name">
-    <br>
-    <label for="playerB">Player B Name:</label>
-    <input type="text" id="playerB" placeholder="Enter Team B Player Name">
-    <br>
-    <label for="mom">Player of the Match (MOM):</label>
-    <input type="text" id="mom" placeholder="Enter MOM Name">
-    <br>
-    <button id="startMatch">Start Match</button>
+<!-- MATCH SETTINGS -->
+<div class="settings" id="settingsPanel">
+
+<h2>Match Settings</h2>
+
+<input id="teamAInput" placeholder="Team A Name">
+<input id="teamBInput" placeholder="Team B Name">
+
+<label>Points per Set</label>
+<input id="pointsInput" type="number" value="25">
+
+<label>Total Sets</label>
+<input id="setsInput" type="number" value="3">
+
+<button class="start-btn" onclick="startMatch()">Start Match</button>
+
 </div>
 
-<!-- ==================== MATCH SCOREBOARD ==================== -->
+
+<!-- SCOREBOARD -->
 <div class="scoreboard">
-    <div class="teams">
-        <div class="team" id="teamA">
-            <h3 id="teamAName">Team A</h3>
-            <div id="scoreA">0</div>
-        </div>
-        <div class="vs">VS</div>
-        <div class="team" id="teamB">
-            <h3 id="teamBName">Team B</h3>
-            <div id="scoreB">0</div>
-        </div>
-    </div>
 
-    <div class="timer">
-        <span id="timerDisplay">00:00</span>
-        <button id="startStopButton">Start</button>
-        <button id="resetButton">Reset</button>
-    </div>
+<div class="teams">
 
-    <div class="match-controls">
-        <button id="incrementA">+1 Team A</button>
-        <button id="decrementA">-1 Team A</button>
-        <button id="incrementB">+1 Team B</button>
-        <button id="decrementB">-1 Team B</button>
-        <button id="nextSetButton">Next Set</button>
-        <button id="saveScoreButton">Save Score</button>
-    </div>
-
-    <div class="sets">
-        <h3>Sets Progress</h3>
-        <div id="setsProgress">Set 1: Team A 0 - Team B 0</div>
-    </div>
+<div class="team-block">
+<h2 id="teamAName">Team A</h2>
+<h1 id="scoreA">0</h1>
 </div>
 
-<script src="js/main.js"></script> <!-- Link to JS -->
+<div class="team-block">
+<h2 id="teamBName">Team B</h2>
+<h1 id="scoreB">0</h1>
+</div>
+
+</div>
+
+
+<!-- MATCH INFO -->
+<div class="match-info">
+
+<div class="sets">
+Sets :
+<span id="setA">0</span> -
+<span id="setB">0</span>
+</div>
+
+<div class="serve">
+Serve :
+<span id="serveIndicator">Team A</span>
+</div>
+
+</div>
+
+
+<!-- TIMER -->
+<div class="timer">
+
+<span id="timerDisplay">00:00</span>
+
+<div class="timer-buttons">
+<button id="startStopButton">Start</button>
+<button id="resetButton">Reset</button>
+</div>
+
+</div>
+
+
+<!-- CONTROLS -->
+<div class="match-controls">
+
+<button onclick="addPointA()">+ Team A</button>
+<button onclick="addPointB()">+ Team B</button>
+
+<button onclick="undoPoint()">Undo</button>
+
+<button onclick="toggleServe()">Toggle Serve</button>
+
+<button onclick="resetMatch()">Reset Match</button>
+
+<button onclick="openLive()">Live Screen</button>
+
+</div>
+
+</div>
+
+<script src="js/main.js"></script>
+
 </body>
 </html>

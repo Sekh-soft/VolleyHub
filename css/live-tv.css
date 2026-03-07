@@ -1,0 +1,104 @@
+/* ===============================
+   BODY BACKGROUND
+================================ */
+
+body{
+
+margin:0;
+padding:0;
+
+background:
+linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+url("../assets/images/tv-bg.png");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+font-family:Arial, Helvetica, sans-serif;
+color:white;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+height:100vh;
+
+}
+
+/* ===============================
+   LIVE SCOREBOARD
+================================ */
+
+.live-scoreboard{
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+width:90%;
+max-width:1400px;
+
+}
+
+/* ===============================
+   TEAM BLOCK
+================================ */
+
+.team{
+
+text-align:center;
+width:35%;
+
+}
+
+/* TEAM NAME */
+
+.team h1{
+
+font-size:60px;
+margin-bottom:20px;
+
+}
+
+/* SCORE */
+
+.score{
+
+font-size:180px;
+color:#00ff88;
+font-weight:bold;
+
+}
+
+/* ===============================
+   CENTER PANEL
+================================ */
+
+.center{
+
+text-align:center;
+
+}
+
+/* SET SCORE */
+
+.sets{
+
+font-size:40px;
+margin-bottom:25px;
+
+}
+
+/* SERVE INDICATOR */
+
+.serve{
+
+font-size:28px;
+background:#2563eb;
+padding:12px 25px;
+border-radius:8px;
+
+display:inline-block;
+
+}

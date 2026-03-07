@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>VolleyHub Tournament</title>
+
+<link rel="stylesheet" href="css/tournament.css">
+
+</head>
+
+<body>
+
+<h1>VolleyHub Tournament Bracket</h1>
+
+<div class="team-input">
+
+<input id="team1" placeholder="Team 1">
+<input id="team2" placeholder="Team 2">
+<input id="team3" placeholder="Team 3">
+<input id="team4" placeholder="Team 4">
+<input id="team5" placeholder="Team 5">
+<input id="team6" placeholder="Team 6">
+<input id="team7" placeholder="Team 7">
+<input id="team8" placeholder="Team 8">
+
+<button onclick="generateBracket()">Generate Bracket</button>
+
+</div>
+
+<div class="bracket">
+
+<div class="round">
+
+<h2>Quarter Finals</h2>
+
+<div id="q1"></div>
+<div id="q2"></div>
+<div id="q3"></div>
+<div id="q4"></div>
+
+</div>
+
+
+<div class="round">
+
+<h2>Semi Finals</h2>
+
+<div id="s1">Winner Q1 vs Winner Q2</div>
+<div id="s2">Winner Q3 vs Winner Q4</div>
+
+</div>
+
+
+<div class="round">
+
+<h2>Final</h2>
+
+<div id="final">Winner S1 vs Winner S2</div>
+
+</div>
+
+</div>
+
+<script src="js/tournament.js"></script>
+
+</body>
+</html>

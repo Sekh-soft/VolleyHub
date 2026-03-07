@@ -1,197 +1,170 @@
-/* ================= RESET ================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto;
+/* ===============================
+   PAGE BACKGROUND
+================================ */
+
+body{
+margin:0;
+padding:0;
+
+background:
+linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
+url("../assets/images/live-score.png");
+
+background-size:cover;
+background-position:center;
+
+font-family:Arial, Helvetica, sans-serif;
+color:white;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+
+height:100vh;
 }
 
-/* ================= BODY ================= */
-body {
-    background: url('../images/live-score.png') no-repeat center center fixed; /* Background image */
-    background-size: cover; /* Ensure it covers the screen */
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding-top: 80px; /* Adjust for the fixed navbar */
+
+/* ===============================
+   SETTINGS PANEL
+================================ */
+
+.settings{
+
+position:absolute;
+top:40px;
+left:40px;
+
+background:rgba(0,0,0,0.6);
+padding:20px;
+border-radius:10px;
+
+display:flex;
+flex-direction:column;
+gap:10px;
+
+width:320px;
+
 }
 
-/* ================= NAVBAR ================= */
-.navbar {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    padding: 14px 28px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(18px);
-    border-radius: 60px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 1000;
+.settings input{
+padding:6px;
+border:none;
+border-radius:4px;
 }
 
-.nav-logo {
-    width: 130px;
-    filter: drop-shadow(0 0 20px #00d4ff);
+.settings button{
+padding:8px;
+background:#22c55e;
+border:none;
+color:white;
+cursor:pointer;
+border-radius:5px;
 }
 
-.btn-nav {
-    padding: 10px 22px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    color: white;
-    background: transparent;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    transition: 0.3s;
+
+/* ===============================
+   SCOREBOARD
+================================ */
+
+.scoreboard{
+
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:25px;
+
 }
 
-/* ================= SETTINGS PANEL ================= */
-.settings {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+
+/* ===============================
+   TEAM BLOCKS
+================================ */
+
+.teams{
+
+display:flex;
+gap:120px;
+
 }
 
-.settings h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
+.team-block{
+text-align:center;
 }
 
-.settings label {
-    font-size: 18px;
-    margin-right: 10px;
+.team-block h2{
+font-size:40px;
+margin:10px 0;
 }
 
-.settings input {
-    padding: 8px;
-    margin: 10px;
-    font-size: 16px;
-    width: 100%;
+.team-block h1{
+font-size:120px;
+margin:0;
+color:#00ff88;
 }
 
-.settings button {
-    padding: 12px 25px;
-    background-color: #00d4ff;
-    color: white;
-    font-weight: bold;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
+
+/* ===============================
+   MATCH INFO
+================================ */
+
+.match-info{
+
+text-align:center;
+
 }
 
-.settings button:hover {
-    background-color: #0072ff;
+.sets{
+font-size:45px;
+margin-bottom:20px;
 }
 
-/* ================= MATCH SCOREBOARD ================= */
-.scoreboard {
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
-    margin: 30px auto;
-    width: 90%;
-    max-width: 800px;
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+.serve{
+
+font-size:30px;
+background:#2563eb;
+
+padding:15px 40px;
+border-radius:8px;
+
+display:inline-block;
+
 }
 
-/* ==================== TEAMS ==================== */
-.teams {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
+
+/* ===============================
+   TIMER
+================================ */
+
+.timer{
+text-align:center;
 }
 
-.team {
-    font-size: 24px;
+#timerDisplay{
+font-size:30px;
+display:block;
+margin-bottom:10px;
 }
 
-#scoreA, #scoreB {
-    font-size: 36px;
-    font-weight: bold;
-    color: #00d4ff;
+.timer-buttons button{
+padding:6px 12px;
+margin:2px;
 }
 
-.vs {
-    font-size: 32px;
-    margin-top: 10px;
-    color: white;
+
+/* ===============================
+   CONTROLS
+================================ */
+
+.match-controls{
+
+margin-top:20px;
+
 }
 
-/* ================= TIMER ================= */
-.timer {
-    margin-bottom: 20px;
-}
+.match-controls button{
 
-#timerDisplay {
-    font-size: 48px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #00d4ff;
-}
+padding:6px 10px;
+margin:3px;
 
-/* ================= BUTTONS ================= */
-button {
-    padding: 10px 20px;
-    background: linear-gradient(135deg, #00d4ff, #0072ff);
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
-}
-
-button:hover {
-    background: linear-gradient(135deg, #00d4ff, #0066ff);
-    transform: translateY(-3px);
-}
-
-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
-/* ================= MATCH CONTROLS ================= */
-.match-controls {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 20px;
-}
-
-.match-controls button {
-    padding: 12px 28px;
-    background-color: #00d4ff;
-    color: white;
-    border-radius: 50px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.match-controls button:hover {
-    background-color: #0072ff;
-}
-
-/* ================= SETS ================= */
-.sets {
-    margin-top: 20px;
-    font-size: 20px;
-}
-
-.sets div {
-    font-size: 16px;
-    color: #ff3b8d;
 }

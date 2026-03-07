@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#22c55e">
+
+<title>VolleyHub Live Score</title>
+
+<link rel="stylesheet" href="css/live-tv.css">
+<link rel="stylesheet" href="css/live-tv.css">
+
+</head>
+
+<body>
+
+<div class="live-scoreboard">
+
+<div class="team">
+
+<h1 id="teamAName">TEAM A</h1>
+<div class="score" id="scoreA">0</div>
+
+</div>
+
+<div class="center">
+
+<div class="sets">
+SET <span id="setA">0</span> - <span id="setB">0</span>
+</div>
+
+<div class="serve">
+SERVE : <span id="serveIndicator">TEAM A</span>
+</div>
+
+</div>
+
+<div class="team">
+
+<h1 id="teamBName">TEAM B</h1>
+<div class="score" id="scoreB">0</div>
+
+</div>
+
+</div>
+
+<script src="js/live.js"></script>
+
+</body>
+</html>
+
+<script>
+
+function loadLiveScore(){
+
+const data = JSON.parse(localStorage.getItem("volleyLiveScore"));
+
+if(!data) return;
+
+document.getElementById("teamAName").textContent = data.teamA || "TEAM A";
+document.getElementById("teamBName").textContent = data.teamB || "TEAM B";
+
+document.getElementById("scoreA").textContent = data.scoreA ?? 0;
+document.getElementById("scoreB").textContent = data.scoreB ?? 0;
+
+document.getElementById("setA").textContent = data.setA ?? 0;
+document.getElementById("setB").textContent = data.setB ?? 0;
+
+document.getElementById("serveIndicator").textContent = data.serve || "TEAM A";
+
+}
+
+setInterval(loadLiveScore,1000);
+
+loadLiveScore();
+
+</script>
